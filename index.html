@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="shortcut icon" href="pics/mcdonalds.ico">
+  <!-- FONT IMPORT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap" rel="stylesheet">
+
+  <title>McDonalds order menu</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>McDonalds order menu</h1>
+    <a style="width:60%; margin: 30px 0px;" target="_blank" href="https://mcdonalds.com/">
+      <img id="header" src="pics/mcdonalds-header.jpg" alt="*mcdonalds header*"></a>
+    <form action="index.html" method="post">
+      <h1>Burgers</h1>
+      <div class="top">
+        <div class="checkboxContainer">
+          <input type="checkbox" name="burgHamburger" id="burgHamburger" class="checkboxInput">
+          <span id="burgHamburgerTitle" onclick="dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
+          <span id="burgHamburgerSize" class="sizeSelect">
+            <span class="topSizeSelect">Positioner</span>
+            <span class="botSizeSelect">
+              <input type="radio" name="burgHamburger">
+              <input type="radio" name="burgHamburger" checked>
+              <input type="radio" name="burgHamburger">
+            </span>
+        </div>
+        <div class="checkboxContainer">
+          <input type="checkbox" name="burgBigMac" id="burgBigMac" class="checkboxInput">
+          <span id="burgBigMacTitle" onclick="dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
+          <span id="burgBigMacSize" class="sizeSelect">
+            <span class="topSizeSelect">Positioner</span>
+            <span class="botSizeSelect">
+              <input type="radio" name="burgBigMac">
+              <input type="radio" name="burgBigMac" checked>
+              <input type="radio" name="burgBigMac">
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="checkboxContainer">
+          <input type="checkbox" name="burgMcDouble" id="burgMcDouble" class="checkboxInput">
+          <span id="burgMcDoubleTitle" onclick="dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
+          <span id="burgMcDoubleSize" class="sizeSelect">
+            <span class="topSizeSelect">Positioner</span>
+            <span class="botSizeSelect">
+              <input type="radio" name="burgMcDouble">
+              <input type="radio" name="burgMcDouble" checked>
+              <input type="radio" name="burgMcDouble">
+            </span>
+          </span>
+        </div>
+        <div class="checkboxContainer">
+          <input type="checkbox" name="burgCheeseburger" id="burgCheeseburger" class="checkboxInput">
+          <span id="burgCheeseburgerTitle" onclick="dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
+          <span id="burgCheeseburgerSize" class="sizeSelect">
+            <span class="topSizeSelect">Positioner</span>
+            <span class="botSizeSelect">
+              <input type="radio" name="burgCheeseburgerSize">
+              <input type="radio" name="burgCheeseburgerSize" checked>
+              <input type="radio" name="burgCheeseburgerSize">
+            </span>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+    function dropSizeSelect(x, y) {
+      document.getElementById(x).classList.toggle("clickToggleExpand");
+      document.getElementById(y).classList.toggle("clickToggleTitle");
+    }
+  </script>
+</body>
+
+</html>
