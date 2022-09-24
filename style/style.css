@@ -191,11 +191,6 @@ form {
   background-color: var(--mcRed);
 }
 
-.clickToggleRadio {
-  transition: margin 0.3s;
-  margin-top: 34px;
-}
-
 .moveRadioLeft {
   margin-right: 100px;
 }

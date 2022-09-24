@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -24,10 +24,10 @@
         <div class="checkboxContainer">
           <label for="burgHamburger">
             <input type="checkbox" name="burgHamburger" id="burgHamburger" class="checkboxInput">
-            <span id="burgHamburgerTitle" onclick="dropSizeSelect('burgHamburgerSize','burgHamburgerTitle','burgSizeRadio')" class="checkboxImage">Hamburger</span>
+            <span id="burgHamburgerTitle" onclick="dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
           </label>
           <span id="burgHamburgerSize" class="sizeSelect">
-            <span class="botSizeSelect" id="burgSizeRadio">
+            <span class="botSizeSelect">
               <label for="burgHamburgerS">
                 <input type="radio" name="burgHamburger" id="burgHamburgerS">
                 <span class="radioSize" onclick="moveRadio('left','burgHamburgerRadioMark')">S</span>
@@ -46,10 +46,10 @@
         <div class="checkboxContainer">
           <label for="burgBigMac">
             <input type="checkbox" name="burgBigMac" id="burgBigMac" class="checkboxInput">
-            <span id="burgBigMacTitle" onclick="dropSizeSelect('burgBigMacSize','burgBigMacTitle','radioSize')" class="checkboxImage">BigMac</span>
+            <span id="burgBigMacTitle" onclick="dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
           </label>
           <span id="burgBigMacSize" class="sizeSelect">
-            <span class="botSizeSelect" id="burgSizeRadio">
+            <span class="botSizeSelect">
               <label for="burgBigMacS">
                 <input type="radio" name="burgBigMac" id="burgBigMacS">
                 <span class="radioSize" onclick="moveRadio('left','burgBigMacRadioMark')">S</span>
@@ -64,15 +64,14 @@
             </span>
           </span>
           <div class="radioMark" id="burgBigMacRadioMark"></div>
-          </span>
         </div>
       </div>
       <div class="bottom">
         <div class="checkboxContainer">
           <input type="checkbox" name="burgMcDouble" id="burgMcDouble" class="checkboxInput">
-          <span id="burgMcDoubleTitle" onclick="dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle','radioSize')" class="checkboxImage">McDouble</span>
+          <span id="burgMcDoubleTitle" onclick="dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
           <span id="burgMcDoubleSize" class="sizeSelect">
-            <span class="botSizeSelect" id="burgSizeRadio">
+            <span class="botSizeSelect">
               <label for="burgMcDoubleS">
                 <input type="radio" name="burgMcDouble" id="burgMcDoubleS">
                 <span class="radioSize" onclick="moveRadio('left','burgMcDoubleRadioMark')">S</span>
@@ -90,9 +89,9 @@
         </div>
         <div class="checkboxContainer">
           <input type="checkbox" name="burgCheeseburger" id="burgCheeseburger" class="checkboxInput">
-          <span id="burgCheeseburgerTitle" onclick="dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle','radioSize')" class="checkboxImage">Cheeseburger</span>
+          <span id="burgCheeseburgerTitle" onclick="dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
           <span id="burgCheeseburgerSize" class="sizeSelect">
-            <span class="botSizeSelect" id="burgSizeRadio">
+            <span class="botSizeSelect">
               <label for="burgCheeseburgerS">
                 <input type="radio" name="burgCheeseburger" id="burgCheeseburgerS">
                 <span class="radioSize" onclick="moveRadio('left','burgCheeseburgerRadioMark')">S</span>
@@ -117,7 +116,6 @@
     function dropSizeSelect(x, y, z) {
       document.getElementById(x).classList.toggle("clickToggleExpand");
       document.getElementById(y).classList.toggle("clickToggleTitle");
-      document.getElementById(z).classList.toggle("clickToggleRadio");
     }
 
     function moveRadio(pos, a) {
