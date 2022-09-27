@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/info.css">
   <link rel="shortcut icon" href="pics/mcdonalds.ico">
   <!-- FONT IMPORT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +25,15 @@
         <div class="checkboxContainer">
           <label for="burgHamburger">
             <input type="checkbox" name="burgHamburger" id="burgHamburger" class="checkboxInput">
-            <span id="burgHamburgerTitle" onclick="dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
+            <span id="burgHamburgerTitle" onclick="burgHamburgerCount=resetCount('burgHamburgerCount');dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
           </label>
           <span id="burgHamburgerSize" class="sizeSelect">
-            <span class="botSizeSelect">
+            <span class="countSelect">
+              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,1,'burgHamburgerCount')">
+              <span class="countNumber" id=burgHamburgerCount></span>
+              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,0,'burgHamburgerCount')">
+            </span>
+            <span class=" botSizeSelect">
               <label for="burgHamburgerS">
                 <input type="radio" name="burgHamburger" id="burgHamburgerS">
                 <span class="radioSize" onclick="moveRadio('left','burgHamburgerRadioMark')">S</span>
@@ -46,9 +52,14 @@
         <div class="checkboxContainer">
           <label for="burgBigMac">
             <input type="checkbox" name="burgBigMac" id="burgBigMac" class="checkboxInput">
-            <span id="burgBigMacTitle" onclick="dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
+            <span id="burgBigMacTitle" onclick="burgBigMacCount=resetCount('burgBigMacCount');dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
           </label>
           <span id="burgBigMacSize" class="sizeSelect">
+            <span class="countSelect">
+              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,1,'burgBigMacCount')">
+              <span class="countNumber" id=burgBigMacCount></span>
+              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,0,'burgBigMacCount')">
+            </span>
             <span class="botSizeSelect">
               <label for="burgBigMacS">
                 <input type="radio" name="burgBigMac" id="burgBigMacS">
@@ -69,8 +80,13 @@
       <div class="bottom">
         <div class="checkboxContainer">
           <input type="checkbox" name="burgMcDouble" id="burgMcDouble" class="checkboxInput">
-          <span id="burgMcDoubleTitle" onclick="dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
+          <span id="burgMcDoubleTitle" onclick="burgMcDoubleCount=resetCount('burgMcDoubleCount');dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
           <span id="burgMcDoubleSize" class="sizeSelect">
+            <span class="countSelect">
+              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,1,'burgMcDoubleCount')">
+              <span class="countNumber" id=burgMcDoubleCount></span>
+              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,0,'burgMcDoubleCount')">
+            </span>
             <span class="botSizeSelect">
               <label for="burgMcDoubleS">
                 <input type="radio" name="burgMcDouble" id="burgMcDoubleS">
@@ -89,8 +105,13 @@
         </div>
         <div class="checkboxContainer">
           <input type="checkbox" name="burgCheeseburger" id="burgCheeseburger" class="checkboxInput">
-          <span id="burgCheeseburgerTitle" onclick="dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
+          <span id="burgCheeseburgerTitle" onclick="burgCheeseburgerCount=resetCount('burgCheeseburgerCount');dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
           <span id="burgCheeseburgerSize" class="sizeSelect">
+            <span class="countSelect">
+              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,1,'burgCheeseburgerCount')">
+              <span class="countNumber" id=burgCheeseburgerCount></span>
+              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,0,'burgCheeseburgerCount')">
+            </span>
             <span class="botSizeSelect">
               <label for="burgCheeseburgerS">
                 <input type="radio" name="burgCheeseburger" id="burgCheeseburgerS">
@@ -110,10 +131,31 @@
       </div>
     </form>
   </div>
-
+  <div class="infoWrapper">
+  </div>
 
   <script>
-    function dropSizeSelect(x, y, z) {
+    let burgHamburgerCount = 0;
+    let burgBigMacCount = 0;
+    let burgMcDoubleCount = 0;
+    let burgCheeseburgerCount = 0;
+
+
+    function count(count, x, string) {
+      if (x == 1)
+        if (count != 0) count--;
+        else {}
+      else count++;
+      document.getElementById(string).innerHTML = count;
+      return count;
+    }
+
+    function resetCount(a) {
+      document.getElementById(a).innerHTML = 1;
+      return 1;
+    }
+
+    function dropSizeSelect(x, y) {
       document.getElementById(x).classList.toggle("clickToggleExpand");
       document.getElementById(y).classList.toggle("clickToggleTitle");
     }
