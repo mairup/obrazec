@@ -15,173 +15,136 @@
 </head>
 
 <body>
-  <div id="wrapper">
-    <h1>McDonalds order menu</h1>
-    <a style="width:60%; margin: 30px 0px;" target="_blank" href="https://mcdonalds.com/">
-      <img id="header" src="pics/mcdonalds-header.jpg" alt="*mcdonalds header*"></a>
-    <form action="index.html" method="post">
-      <h1>Burgers</h1>
-      <div class="top">
-        <div class="checkboxContainer">
-          <label for="burgHamburger">
-            <input type="checkbox" name="burgHamburger" id="burgHamburger" class="checkboxInput">
-            <span id="burgHamburgerTitle" onclick="burgHamburgerCount=resetCount('burgHamburgerCount');dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
-          </label>
-          <span id="burgHamburgerSize" class="sizeSelect">
-            <span class="countSelect">
-              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,1,'burgHamburgerCount')">
-              <span class="countNumber" id=burgHamburgerCount></span>
-              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,0,'burgHamburgerCount')">
+  <div id="filter">
+    <div id="wrapper">
+      <h1>McDonalds order menu</h1>
+      <a style="width:60%; margin: 30px 0px;" target="_blank" href="https://mcdonalds.com/">
+        <img id="header" src="pics/mcdonalds-header.jpg" alt="*mcdonalds header*"></a>
+      <form action="index.html" method="post">
+        <h1>Burgers</h1>
+        <div class="top">
+          <div class="checkboxContainer">
+            <label for="burgHamburger">
+              <input type="checkbox" name="burgHamburger" id="burgHamburger" class="checkboxInput">
+              <span id="burgHamburgerTitle" onclick="burgHamburgerCount=resetCount('burgHamburgerCount');dropSizeSelect('burgHamburgerSize','burgHamburgerTitle')" class="checkboxImage">Hamburger</span>
+            </label>
+            <span id="burgHamburgerSize" class="sizeSelect">
+              <span class="countSelect">
+                <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,1,'burgHamburgerCount')">
+                <span class="countNumber" id=burgHamburgerCount></span>
+                <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgHamburgerCount=count(burgHamburgerCount,0,'burgHamburgerCount')">
+              </span>
+              <span class=" botSizeSelect">
+                <label for="burgHamburgerS">
+                  <input type="radio" name="burgHamburger" id="burgHamburgerS">
+                  <span class="radioSize" onclick="moveRadio('left','burgHamburgerRadioMark')">S</span>
+                </label>
+                <label for="burgHamburgerM">
+                  <input type="radio" name="burgHamburger" id="burgHamburgerM">
+                  <span class="radioSize" onclick="moveRadio('middle','burgHamburgerRadioMark')">M</span>
+                </label>
+                <label for="burgHamburgerL"><input type="radio" name="burgHamburger" id="burgHamburgerL">
+                  <span class="radioSize" onclick="moveRadio('right','burgHamburgerRadioMark')">L</span>
+                </label>
+              </span>
             </span>
-            <span class=" botSizeSelect">
-              <label for="burgHamburgerS">
-                <input type="radio" name="burgHamburger" id="burgHamburgerS">
-                <span class="radioSize" onclick="moveRadio('left','burgHamburgerRadioMark')">S</span>
-              </label>
-              <label for="burgHamburgerM">
-                <input type="radio" name="burgHamburger" id="burgHamburgerM">
-                <span class="radioSize" onclick="moveRadio('middle','burgHamburgerRadioMark')">M</span>
-              </label>
-              <label for="burgHamburgerL"><input type="radio" name="burgHamburger" id="burgHamburgerL">
-                <span class="radioSize" onclick="moveRadio('right','burgHamburgerRadioMark')">L</span>
-              </label>
+            <div class="radioMark" id="burgHamburgerRadioMark"></div>
+            <span class="infoIcon" onclick="toggleInfo('infoFiles/hamburger.html')"><img src="pics/infoIcon.svg" alt="info icon"></span>
+          </div>
+          <div class="checkboxContainer">
+            <label for="burgBigMac">
+              <input type="checkbox" name="burgBigMac" id="burgBigMac" class="checkboxInput">
+              <span id="burgBigMacTitle" onclick="burgBigMacCount=resetCount('burgBigMacCount');dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
+            </label>
+            <span id="burgBigMacSize" class="sizeSelect">
+              <span class="countSelect">
+                <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,1,'burgBigMacCount')">
+                <span class="countNumber" id=burgBigMacCount></span>
+                <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,0,'burgBigMacCount')">
+              </span>
+              <span class="botSizeSelect">
+                <label for="burgBigMacS">
+                  <input type="radio" name="burgBigMac" id="burgBigMacS">
+                  <span class="radioSize" onclick="moveRadio('left','burgBigMacRadioMark')">S</span>
+                </label>
+                <label for="burgBigMacM">
+                  <input type="radio" name="burgBigMac" id="burgBigMacM">
+                  <span class="radioSize" onclick="moveRadio('middle','burgBigMacRadioMark')">M</span>
+                </label>
+                <label for="burgBigMacL"><input type="radio" name="burgBigMac" id="burgBigMacL">
+                  <span class="radioSize" onclick="moveRadio('right','burgBigMacRadioMark')">L</span>
+                </label>
+              </span>
             </span>
-          </span>
-          <div class="radioMark" id="burgHamburgerRadioMark"></div>
+            <div class="radioMark" id="burgBigMacRadioMark"></div>
+            <span class="infoIcon" onclick="toggleInfo('infoFiles/bigmac.html')"><img src="pics/infoIcon.svg" alt="info icon"></span>
+          </div>
         </div>
-        <div class="checkboxContainer">
-          <label for="burgBigMac">
-            <input type="checkbox" name="burgBigMac" id="burgBigMac" class="checkboxInput">
-            <span id="burgBigMacTitle" onclick="burgBigMacCount=resetCount('burgBigMacCount');dropSizeSelect('burgBigMacSize','burgBigMacTitle')" class="checkboxImage">BigMac</span>
-          </label>
-          <span id="burgBigMacSize" class="sizeSelect">
-            <span class="countSelect">
-              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,1,'burgBigMacCount')">
-              <span class="countNumber" id=burgBigMacCount></span>
-              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgBigMacCount=count(burgBigMacCount,0,'burgBigMacCount')">
+        <div class="bottom">
+          <div class="checkboxContainer">
+            <input type="checkbox" name="burgMcDouble" id="burgMcDouble" class="checkboxInput">
+            <span id="burgMcDoubleTitle" onclick="burgMcDoubleCount=resetCount('burgMcDoubleCount');dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
+            <span id="burgMcDoubleSize" class="sizeSelect">
+              <span class="countSelect">
+                <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,1,'burgMcDoubleCount')">
+                <span class="countNumber" id=burgMcDoubleCount></span>
+                <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,0,'burgMcDoubleCount')">
+              </span>
+              <span class="botSizeSelect">
+                <label for="burgMcDoubleS">
+                  <input type="radio" name="burgMcDouble" id="burgMcDoubleS">
+                  <span class="radioSize" onclick="moveRadio('left','burgMcDoubleRadioMark')">S</span>
+                </label>
+                <label for="burgMcDoubleM">
+                  <input type="radio" name="burgMcDouble" id="burgMcDoubleM">
+                  <span class="radioSize" onclick="moveRadio('middle','burgMcDoubleRadioMark')">M</span>
+                </label>
+                <label for="burgMcDoubleL"><input type="radio" name="burgMcDouble" id="burgMcDoubleL">
+                  <span class="radioSize" onclick="moveRadio('right','burgMcDoubleRadioMark')">L</span>
+                </label>
+              </span>
             </span>
-            <span class="botSizeSelect">
-              <label for="burgBigMacS">
-                <input type="radio" name="burgBigMac" id="burgBigMacS">
-                <span class="radioSize" onclick="moveRadio('left','burgBigMacRadioMark')">S</span>
-              </label>
-              <label for="burgBigMacM">
-                <input type="radio" name="burgBigMac" id="burgBigMacM">
-                <span class="radioSize" onclick="moveRadio('middle','burgBigMacRadioMark')">M</span>
-              </label>
-              <label for="burgBigMacL"><input type="radio" name="burgBigMac" id="burgBigMacL">
-                <span class="radioSize" onclick="moveRadio('right','burgBigMacRadioMark')">L</span>
-              </label>
+            <div class="radioMark" id="burgMcDoubleRadioMark"></div>
+            <span class="infoIcon" onclick="toggleInfo('infoFiles/mcdouble.html')"><img src="pics/infoIcon.svg" alt="info icon"></span>
+          </div>
+          <div class="checkboxContainer">
+            <input type="checkbox" name="burgCheeseburger" id="burgCheeseburger" class="checkboxInput">
+            <span id="burgCheeseburgerTitle" onclick="burgCheeseburgerCount=resetCount('burgCheeseburgerCount');dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
+            <span id="burgCheeseburgerSize" class="sizeSelect">
+              <span class="countSelect">
+                <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,1,'burgCheeseburgerCount')">
+                <span class="countNumber" id=burgCheeseburgerCount></span>
+                <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,0,'burgCheeseburgerCount')">
+              </span>
+              <span class="botSizeSelect">
+                <label for="burgCheeseburgerS">
+                  <input type="radio" name="burgCheeseburger" id="burgCheeseburgerS">
+                  <span class="radioSize" onclick="moveRadio('left','burgCheeseburgerRadioMark')">S</span>
+                </label>
+                <label for="burgCheeseburgerM">
+                  <input type="radio" name="burgCheeseburger" id="burgCheeseburgerM">
+                  <span class="radioSize" onclick="moveRadio('middle','burgCheeseburgerRadioMark')">M</span>
+                </label>
+                <label for="burgCheeseburgerL"><input type="radio" name="burgCheeseburger" id="burgCheeseburgerL">
+                  <span class="radioSize" onclick="moveRadio('right','burgCheeseburgerRadioMark')">L</span>
+                </label>
+              </span>
             </span>
-          </span>
-          <div class="radioMark" id="burgBigMacRadioMark"></div>
+            <div class="radioMark" id="burgCheeseburgerRadioMark"></div>
+            <span class="infoIcon" onclick="toggleInfo('infoFiles/cheeseburger.html')"><img src="pics/infoIcon.svg" alt="info icon"></span>
+          </div>
         </div>
+      </form>
+    </div>
+    <div class="infoPopUp infoCover" id="infoCover" onclick="toggleInfo('infoFiles/hamburger.html')">
+      <div class="infoWrapper">
       </div>
-      <div class="bottom">
-        <div class="checkboxContainer">
-          <input type="checkbox" name="burgMcDouble" id="burgMcDouble" class="checkboxInput">
-          <span id="burgMcDoubleTitle" onclick="burgMcDoubleCount=resetCount('burgMcDoubleCount');dropSizeSelect('burgMcDoubleSize','burgMcDoubleTitle')" class="checkboxImage">McDouble</span>
-          <span id="burgMcDoubleSize" class="sizeSelect">
-            <span class="countSelect">
-              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,1,'burgMcDoubleCount')">
-              <span class="countNumber" id=burgMcDoubleCount></span>
-              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgMcDoubleCount=count(burgMcDoubleCount,0,'burgMcDoubleCount')">
-            </span>
-            <span class="botSizeSelect">
-              <label for="burgMcDoubleS">
-                <input type="radio" name="burgMcDouble" id="burgMcDoubleS">
-                <span class="radioSize" onclick="moveRadio('left','burgMcDoubleRadioMark')">S</span>
-              </label>
-              <label for="burgMcDoubleM">
-                <input type="radio" name="burgMcDouble" id="burgMcDoubleM">
-                <span class="radioSize" onclick="moveRadio('middle','burgMcDoubleRadioMark')">M</span>
-              </label>
-              <label for="burgMcDoubleL"><input type="radio" name="burgMcDouble" id="burgMcDoubleL">
-                <span class="radioSize" onclick="moveRadio('right','burgMcDoubleRadioMark')">L</span>
-              </label>
-            </span>
-          </span>
-          <div class="radioMark" id="burgMcDoubleRadioMark"></div>
-        </div>
-        <div class="checkboxContainer">
-          <input type="checkbox" name="burgCheeseburger" id="burgCheeseburger" class="checkboxInput">
-          <span id="burgCheeseburgerTitle" onclick="burgCheeseburgerCount=resetCount('burgCheeseburgerCount');dropSizeSelect('burgCheeseburgerSize','burgCheeseburgerTitle')" class="checkboxImage">Cheeseburger</span>
-          <span id="burgCheeseburgerSize" class="sizeSelect">
-            <span class="countSelect">
-              <img class='countArrow' src="pics/leftArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,1,'burgCheeseburgerCount')">
-              <span class="countNumber" id=burgCheeseburgerCount></span>
-              <img class='countArrow' src="pics/rightArrow.svg" alt="rip" onclick="burgCheeseburgerCount=count(burgCheeseburgerCount,0,'burgCheeseburgerCount')">
-            </span>
-            <span class="botSizeSelect">
-              <label for="burgCheeseburgerS">
-                <input type="radio" name="burgCheeseburger" id="burgCheeseburgerS">
-                <span class="radioSize" onclick="moveRadio('left','burgCheeseburgerRadioMark')">S</span>
-              </label>
-              <label for="burgCheeseburgerM">
-                <input type="radio" name="burgCheeseburger" id="burgCheeseburgerM">
-                <span class="radioSize" onclick="moveRadio('middle','burgCheeseburgerRadioMark')">M</span>
-              </label>
-              <label for="burgCheeseburgerL"><input type="radio" name="burgCheeseburger" id="burgCheeseburgerL">
-                <span class="radioSize" onclick="moveRadio('right','burgCheeseburgerRadioMark')">L</span>
-              </label>
-            </span>
-          </span>
-          <div class="radioMark" id="burgCheeseburgerRadioMark"></div>
-        </div>
-      </div>
-    </form>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/jquery-3.6.1.js"></script>
+
   </div>
-  <div class="infoWrapper">
-  </div>
-
-  <script>
-    let burgHamburgerCount = 0;
-    let burgBigMacCount = 0;
-    let burgMcDoubleCount = 0;
-    let burgCheeseburgerCount = 0;
-
-
-    function count(count, x, string) {
-      if (x == 1)
-        if (count != 0) count--;
-        else {}
-      else count++;
-      document.getElementById(string).innerHTML = count;
-      return count;
-    }
-
-    function resetCount(a) {
-      document.getElementById(a).innerHTML = 1;
-      return 1;
-    }
-
-    function dropSizeSelect(x, y) {
-      document.getElementById(x).classList.toggle("clickToggleExpand");
-      document.getElementById(y).classList.toggle("clickToggleTitle");
-    }
-
-    function moveRadio(pos, a) {
-      switch (pos) {
-        case "left":
-          document.getElementById(a).classList.remove("moveRadioRight");
-          document.getElementById(a).classList.remove("moveRadioMiddle");
-          document.getElementById(a).classList.toggle("moveRadioLeft");
-          break;
-        case "middle":
-          document.getElementById(a).classList.remove("moveRadioLeft");
-          document.getElementById(a).classList.remove("moveRadioRight");
-          document.getElementById(a).classList.toggle("moveRadioMiddle");
-          break;
-        case "right":
-          document.getElementById(a).classList.remove("moveRadioLeft");
-          document.getElementById(a).classList.remove("moveRadioMiddle");
-          document.getElementById(a).classList.toggle("moveRadioRight");
-          break;
-        default:
-
-      }
-    }
-  </script>
 </body>
 
 </html>

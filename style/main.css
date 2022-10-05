@@ -6,14 +6,18 @@
 html, body {
   margin: 0px;
   padding: 0px;
+  font-family: 'Roboto Flex', sans-serif;
   background-color: var(--mcRed);
+}
+
+#filter {
+  height: 100%;
   display: grid;
   place-items: center;
-  font-family: 'Roboto Flex', sans-serif;
 }
 
 #wrapper {
-  width: 70%;
+  width: 90%;
   max-width: 800px;
   min-width: 500px;
   background-color: var(--mcYello);
@@ -21,7 +25,6 @@ html, body {
   position: absolute;
   top: 50px;
   box-shadow: rgba(0, 0, 0, 1) 0px 10px 50px;
-  ;
   padding: 30px 0px;
   display: flex;
   align-items: center;
@@ -88,7 +91,7 @@ form {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  transition: background-color 0.3s ease-in, border-radius 0.3s ease-in;
+  transition: background-color 0.2s ease-in, border-radius 0.2s ease-in;
   position: relative;
   z-index: 4;
 }
@@ -127,7 +130,7 @@ form {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  transition: height 0.3s ease-in, border-radius 0.3s ease-in, background-color 0.3s ease-in;
+  transition: height 0.2s ease-in, border-radius 0.2s ease-in, background-color 0.2s ease-in, box-shadow 0.2s ease-out;
   /* text line removal */
   caret-color: transparent;
   /* select color removal */
@@ -146,8 +149,8 @@ form {
   align-items: center;
   justify-content: center;
   width: 100%;
-  transition: margin 0.3s ease-in;
-  margin-top: 90px;
+  transition: margin 0.2s ease-in;
+  margin-top: 60px;
   height: 30px;
   padding: 0px;
 }
@@ -167,14 +170,14 @@ form {
   z-index: 3;
 }
 
-.countArrow:hover {
+.countArrow, .radioMark, .radioSize, .infoIcon:hover {
   cursor: pointer;
 }
 
 .botSizeSelect {
   display: flex;
   width: 100%;
-  transition: margin 0.3s ease-in;
+  transition: margin 0.2s ease-in;
   justify-content: center;
   margin-top: -37px;
 }
@@ -192,25 +195,33 @@ form {
   height: 30px;
   width: 60px;
   background: rgba(255, 255, 255, 0.44);
-  margin-top: -50px;
+  margin-top: -80px;
   z-index: 2;
   border-radius: 20px;
-  margin-bottom: 40px;
-  transition: margin-right 0.3s ease;
+  margin-bottom: 100px;
+  transition: margin-right 0.2s ease;
 }
 
-.radioMark:hover {
-  cursor: pointer;
+.checkboxContainer .infoIcon {
+  height: 20px;
+  width: 120px;
+  background-color: var(--mcYello);
+  border-radius: 15px;
+  margin: -90px 0 20px;
+  z-index: 2;
+  text-align: center;
 }
 
-.radioSize:hover {
-  cursor: pointer;
+.checkboxContainer .infoIcon img {
+  height: 30px;
+  margin-top: -5px;
 }
 
 .clickToggleExpand {
-  transition: background-color 0.3s ease-in, height 0.3s ease-out, border-radius 0.3s ease-out;
-  height: 200px;
+  transition: background-color 0.2s ease-in, height 0.2s ease-out, box-shadow 0.2s ease;
+  height: 230px;
   background-color: var(--mcRed);
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 10px;
 }
 
 .clickToggleTitle {
