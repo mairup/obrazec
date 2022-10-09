@@ -2,13 +2,14 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.76);
+  background-color: rgba(8, 8, 8, 0.91);
   z-index: 9;
   top: 0;
   left: 0;
 }
 
 .infoWrapper {
+  caret-color: transparent;
   position: fixed;
   padding: 20px 0px 30px;
   top: 10%;
@@ -24,6 +25,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  box-shadow: rgba(73, 70, 70, 1) 0px 0px 25px;
 }
 
 h1 {
@@ -62,6 +64,81 @@ h1 {
 
 .smallNutritionValueRight {
   float: right;
+}
+
+.infoWrapper textarea {
+  width: 80%;
+  height: 300px;
+  resize: none;
+  border-radius: 10px;
+  margin: 0px auto;
+}
+
+#checkoutInfoDiv {
+  margin: 20px 0;
+  line-height: 1.4em;
+  ;
+}
+
+#checkoutElseContainer {
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  width: 40%;
+}
+
+.textInputBox input, select {
+  width: 100%;
+  border: 0;
+  caret-color: black;
+  outline: none;
+  background-color: var(--mcYello);
+  text-align: center;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 10px;
+  filter: brightness(0.9);
+}
+
+.textInputBox input:focus {
+  outline: 2px solid var(--mcRed);
+  filter: brightness(1);
+}
+
+.textInputBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.expirationDateBox {
+  display: flex;
+}
+
+.submitBox {
+  width: 100%;
+  margin-top: 40px;
+  background-color: var(--mcRed);
+  border-radius: 8px;
+}
+
+.submitBox input {
+  background-color: var(--mcRed);
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  border: 0;
+  height: 40px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.submitBox input:hover {
+  cursor: pointer;
 }
 
 .infoPopUp {
