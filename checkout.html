@@ -1,47 +1,60 @@
-<h1>Payment:</h1>
-Credit card number:
-<div class="textInputBox">
-  <input type="text" name="cardNumber" id="inputCardNumber" pattern="">
-</div>
-Name on the card:
-<div class="textInputBox">
-  <input type="text" name="fullName" id="inputCardName">
-</div>
-<div class="expirationDateBox">
-  <select name="expirationMonth">
-    <option value="01">01</option>
-    <option value="02">02</option>
-    <option value="03">03</option>
-    <option value="04">04</option>
-    <option value="05">05</option>
-    <option value="06">06</option>
-    <option value="07">07</option>
-    <option value="08">08</option>
-    <option value="09">09</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-  </select>
-  <select name="expirationYear">
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-    <option value="2026">2026</option>
-    <option value="2027">2027</option>
-    <option value="2028">2028</option>
-    <option value="2029">2029</option>
-    <option value="2030">2030</option>
-    <option value="2031">2031</option>
-    <option value="2032">2032</option>
-    <option value="2033">2033</option>
-    <option value="2034">2034</option>
-    <option value="2035">2035</option>
-    <option value="2036">2036</option>
-    <option value="2037">2037</option>
-    <option value="2038">2038</option>
-  </select>
-</div>
-<div class="submitBox">
-  <input type="submit" name="pay" value="Pay">
-</div>
+<form id="payment">
+
+  <h1>Payment:</h1>
+  Credit card number:
+  <div class="textInputBox">
+    <input oninput="creditCardSpaces('inputCardNumber')" type="text" name="cardNumber" id="inputCardNumber" maxlength="19" required pattern="^(?:4\d{3}|5[1-5]\d{2}|6011|3[47]\d{2})([- ]?)\d{4}\1\d{4}\1\d{4}$">
+  </div>
+  Name on the card
+  <div class="textInputBox">
+    <input type="text" name="fullName" id="inputCardName" required>
+  </div>
+  <div class="expirationDateBox">
+    <div class="expirationDate">
+      Month
+      <select name="expirationMonth">
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+    </div>
+    <div class="expirationDate" id="expirationYearBox">
+      Year
+      <select name="expirationYear">
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+        <option value="2034">2034</option>
+        <option value="2035">2035</option>
+        <option value="2036">2036</option>
+        <option value="2037">2037</option>
+        <option value="2038">2038</option>
+      </select>
+    </div>
+    <div class="cvcBox">
+      CVC
+      <input type="text" name="cvc" pattern="[0-9]{3}" maxlength="3" required>
+    </div>
+  </div>
+  <div class="submitBox">
+    <input id="checkoutPayment" type="submit" name="pay" value="Pay">
+  </div>
+</form>

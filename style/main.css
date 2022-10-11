@@ -3,8 +3,7 @@
   --mcYello: rgba(254, 198, 48, 1);
 }
 
-html,
-body {
+html, body {
   margin: 0px;
   padding: 0px;
   font-family: 'Roboto Flex', sans-serif;
@@ -58,7 +57,7 @@ h1 {
   width: 100%;
 }
 
-form {
+#wrapper form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -289,15 +288,29 @@ img {
   margin: 0px 2px;
 }
 
-#copyrightMap,#socialMediaIcons:hover {
+#copyrightMap, #socialMediaIcons:hover {
   cursor: pointer;
 }
-.sweetAlertSocials{
+
+.sweetAlertSocials {
   display: flex;
   flex-flow: row;
-  justify-content: center;
-  align-items:center;
+  width: 40%;
 }
+
+#swalContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.swalText {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .clickToggleExpand {
   transition: background-color 0.2s ease-in, height 0.2s ease-out, box-shadow 0.2s ease;
   height: 200px;

@@ -24,15 +24,15 @@ const itemPriceArray = [burgHamburgerPrice, burgBigMacPrice, burgBigMacPrice, bu
 ];
 
 
-let burgHamburgerSize = 'medium';
-let burgBigMacSize = 'medium';
-let burgMcDoubleSize = 'medium';
-let burgCheeseburgerSize = 'medium';
+let burgHamburgerSize = 'M';
+let burgBigMacSize = 'M';
+let burgMcDoubleSize = 'M';
+let burgCheeseburgerSize = 'M';
 
-let bevCocaColaSize = 'medium';
-let bevSpriteSize = 'medium';
-let bevDrPepperSize = 'medium';
-let bevFantaSize = 'medium';
+let bevCocaColaSize = 'M';
+let bevSpriteSize = 'M';
+let bevDrPepperSize = 'M';
+let bevFantaSize = 'M';
 
 const checkoutStrings = ['Hamburger: ', 'BigMac: ', 'McDouble: ', 'Cheeseburger: ',
   'CocaCola: ', 'Sprite: ', 'DrPepper: ', 'Fanta: '
@@ -40,6 +40,19 @@ const checkoutStrings = ['Hamburger: ', 'BigMac: ', 'McDouble: ', 'Cheeseburger:
 
 const checkoutInfoDiv = document.createElement("div");
 checkoutInfoDiv.setAttribute("id", "checkoutInfoDiv");
+const checkoutTotalPriceDiv = document.createElement("div");
+checkoutTotalPriceDiv.setAttribute("id", "checkoutTotalPriceDiv");
+
+const checkoutInfoDivItem = document.createElement("div");
+checkoutInfoDivItem.setAttribute("id", "checkoutInfoDivItem");
+const checkoutInfoDivSize = document.createElement("div");
+checkoutInfoDivSize.setAttribute("id", "checkoutInfoDivSize");
+const checkoutInfoDivNum = document.createElement("div");
+checkoutInfoDivNum.setAttribute("id", "checkoutInfoDivNum");
+const checkoutInfoDivPrice = document.createElement("div");
+checkoutInfoDivPrice.setAttribute("id", "checkoutInfoDivPrice");
+
+let checkoutArray = ["", "", "", ""];
 
 const infoCover = document.getElementById('infoCover');
 const infoWrapper = document.getElementById('infoWrapper');
@@ -60,6 +73,8 @@ $('#infoCover').on('click', function(e) {
 });
 
 $('#checkoutLabel').on('click', function(e) {
+
+  infoWrapper.innerHTML = "<h1>Order:</h1>"
   let itemCountArray = [
     burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
     bevCocaColaCount, bevSpriteCount, bevDrPepperCount, bevFantaCount
@@ -69,9 +84,14 @@ $('#checkoutLabel').on('click', function(e) {
     if (itemCountArray[i] > 0) x = 1;
   if (x == 1) {
     infoCover.classList.toggle("infoPopUp");
-    let s = createCheckout();
-    checkoutInfoDiv.innerText = s;
+
     infoWrapper.append(checkoutInfoDiv);
+    createCheckout();
+    checkoutInfoDiv.append(checkoutInfoDivItem);
+    checkoutInfoDiv.append(checkoutInfoDivSize);
+    checkoutInfoDiv.append(checkoutInfoDivNum);
+    checkoutInfoDiv.append(checkoutInfoDivPrice);
+    infoWrapper.append(checkoutTotalPriceDiv);
     infoWrapper.append(checkoutElseContainer);
   } else {
     Swal.fire({
@@ -82,6 +102,10 @@ $('#checkoutLabel').on('click', function(e) {
 });
 
 function createCheckout() {
+  checkoutArray[0] = "<h2>Item:</h2>";
+  checkoutArray[1] = "<h2>Size:</h2>";
+  checkoutArray[2] = "<h2>Count:</h2>";
+  checkoutArray[3] = "<h2>Price:</h2>";
   let totalPrice = 0;
   let itemCountArray = [
     burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
@@ -91,17 +115,16 @@ function createCheckout() {
     bevCocaColaSize, bevSpriteSize, bevDrPepperSize, bevFantaSize
   ];
   let size;
-  let checkoutOutput = '';
   for (var i = 0; i < itemCountArray.length; i++) {
     if (itemCountArray[i] > 0) {
       switch (itemSizeArray[i]) {
-        case 'small':
+        case 'S':
           size = 0.9;
           break;
-        case 'medium':
+        case 'M':
           size = 1;
           break;
-        case 'large':
+        case 'L':
           size = 1.2;
           break;
       }
@@ -109,17 +132,23 @@ function createCheckout() {
       price = Math.round(price * 100) / 100;
       totalPrice += price;
       totalPrice = Math.round(totalPrice * 100) / 100;
-      checkoutOutput += checkoutStrings[i] + itemSizeArray[i] + " x " + itemCountArray[i] + " = $" + price + " \r\n ";
+      checkoutArray[0] += checkoutStrings[i] + " <br> ";
+      checkoutArray[1] += itemSizeArray[i] + " <br> ";
+      checkoutArray[2] += itemCountArray[i] + " <br> ";
+      checkoutArray[3] += price + ' EUR' + " <br> ";
     }
   }
-  checkoutOutput += " \r\n " + "Total price = $" + totalPrice;
-  return checkoutOutput;
+  checkoutTotalPriceDiv.innerHTML = "Total price = " + totalPrice + ' EUR';
+  checkoutInfoDivItem.innerHTML = checkoutArray[0];
+  checkoutInfoDivSize.innerHTML = checkoutArray[1];
+  checkoutInfoDivNum.innerHTML = checkoutArray[2];
+  checkoutInfoDivPrice.innerHTML = checkoutArray[3];
 }
 
 function count(count, x, string) { // x=1/0  1 --> odstevanje   0 --> sestevanje
   if (x == 0)
     count++;
-  else if (count == 0);
+  else if (count == 1);
   else count--;
   document.getElementById(string).innerHTML = count;
   return count;
@@ -147,17 +176,17 @@ function moveRadio(pos, elementId) {
       element.classList.remove("moveRadioRight");
       element.classList.remove("moveRadioMiddle");
       element.classList.toggle("moveRadioLeft");
-      return 'small';
+      return 'S';
     case "middle":
       element.classList.remove("moveRadioLeft");
       element.classList.remove("moveRadioRight");
       element.classList.toggle("moveRadioMiddle");
-      return 'medium';
+      return 'M';
     case "right":
       element.classList.remove("moveRadioLeft");
       element.classList.remove("moveRadioMiddle");
       element.classList.toggle("moveRadioRight");
-      return 'large';
+      return 'L';
   }
 }
 
@@ -173,8 +202,30 @@ $('#socialMediaIcons').on('click', function(e) {
   Swal.fire({
     title: "Socials:",
     icon: 'info',
-    html: '<p class="sweetAlertSocials"><img src="pics/twitterIcon.svg" alt="" class="socialMediaIcons"> @RoomaiGG</p>' +
-      '<p class="sweetAlertSocials"><img src="pics/instagramIcon.svg" alt="" class="socialMediaIcons"> Mai Rupnik</p>' +
-      '<p class="sweetAlertSocials"><img src="pics/githubIcon.svg" alt="" class="socialMediaIcons"> rupmai</p>'
+    html: '<div id="swalContainer"><p class="sweetAlertSocials"><img src="pics/twitterIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">@RoomaiGG</span></p>' +
+      '<p class="sweetAlertSocials"><img src="pics/instagramIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">Mai Rupnik</span></p>' +
+      '<p class="sweetAlertSocials"><img src="pics/githubIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">rupmai</span></p></div>'
+  });
+});
+
+function creditCardSpaces(id) {
+  let x = document.getElementById(id).value.length;
+  console.log(x);
+  if ((x) % 5 == 0 && x < 17 && x != 0) {
+    document.getElementById(id).value = document.getElementById(id).value.substr(0, x - 1) + ' ' + document.getElementById(id).value.charAt(x - 1);
+  }
+  if (document.getElementById(id).value.charAt(x) == ' ') {
+    document.getElementById(id).value = document.getElementById(id).value.substr(0, x - 1);
+  }
+}
+
+infoWrapper.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let s = document.getElementById('inputCardName').value;
+  Swal.fire({
+    icon: 'success',
+    title: 'Thank you for your purchase ' + s,
+  }).then((result) => {
+    window.location.reload(true);
   });
 });

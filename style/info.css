@@ -2,7 +2,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(8, 8, 8, 0.91);
+  background-color: rgba(8, 8, 8, 0.9);
   z-index: 9;
   top: 0;
   left: 0;
@@ -75,9 +75,37 @@ h1 {
 }
 
 #checkoutInfoDiv {
+  line-height: 22px;
   margin: 20px 0;
-  line-height: 1.4em;
-  ;
+  width: 75%;
+  display: flex;
+  flex-flow: row;
+}
+
+#checkoutInfoDivItem {
+  width: 25%;
+}
+
+#checkoutInfoDivSize {
+  width: 25%;
+  text-align: center;
+}
+
+#checkoutInfoDivNum {
+  width: 25%;
+  text-align: center;
+}
+
+#checkoutInfoDivPrice {
+  text-align: right;
+  width: 25%;
+}
+
+#checkoutTotalPriceDiv {
+  margin: 0 0 20px;
+  width: 75%;
+  text-align: right;
+  font-weight: bold;
 }
 
 #checkoutElseContainer {
@@ -85,11 +113,13 @@ h1 {
   text-align: center;
   display: flex;
   flex-flow: column;
-  width: 40%;
+  width: 55%;
+  justify-content: center;
+  align-items: center;
 }
 
 .textInputBox input, select {
-  width: 100%;
+  width: 90%;
   border: 0;
   caret-color: black;
   outline: none;
@@ -117,7 +147,38 @@ h1 {
   display: flex;
 }
 
-.submitBox {
+.expirationDate {
+  width: 33%;
+}
+
+#expirationYearBox {
+  margin: 0;
+}
+
+.cvcBox {
+  width: 25%;
+}
+
+.cvcBox input {
+  width: 100%;
+  border: 0;
+  caret-color: black;
+  outline: none;
+  background-color: var(--mcYello);
+  text-align: center;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 10px;
+  filter: brightness(0.9);
+}
+
+.cvcBox input:focus {
+  outline: 2px solid var(--mcRed);
+  filter: brightness(1);
+}
+
+.cvcBox input .submitBox {
   width: 100%;
   margin-top: 40px;
   background-color: var(--mcRed);
@@ -126,11 +187,12 @@ h1 {
 
 .submitBox input {
   background-color: var(--mcRed);
+  margin: 20px 0 0;
   font-size: 20px;
   font-weight: bold;
-  width: 100%;
+  width: 50%;
   border: 0;
-  height: 40px;
+  height: 50px;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
