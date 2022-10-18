@@ -11,14 +11,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap" rel="stylesheet">
 
-  <title>McDonalds order menu</title>
+  <title>McDonalds Order Menu</title>
 </head>
 
 <body>
   <div class="background">
 
     <div id="wrapper">
-      <h1>McDonalds order menu</h1>
+      <h1 style="font-size:40px">McDonalds order menu</h1>
       <a style="width:60%; margin: 30px 0px;" target="_blank" href="https://mcdonalds.com/">
         <img id="header" src="pics/mcdonalds-header.jpg" alt="*mcdonalds header*"></a>
       <form id="orderForm">
@@ -254,26 +254,59 @@
           </span>
         </label>
       </form>
+      <div class="footer">
+        <span id="copyrightContainer">
+          <h2>Copyright</h2>
+          <img src="pics/copyright.svg" alt="" style="height:25px;" usemap="#copyrightMap">
+          <map name="copyrightMap" id="copyrightMap">
+            <area shape="circle" coords="15,15,15" alt="">
+          </map>
+        </span>
+      </div>
     </div>
     <div class="infoPopUp infoCover" id="infoCover">
       <div class="infoWrapper" id="infoWrapper">
       </div>
     </div>
-    <div class="footer">
-      <span id="copyrightContainer">
-        <h2>Copyright</h2>
-        <img src="pics/copyright.svg" alt="" style="height:30px;" usemap="#copyrightMap">
-        <map name="copyrightMap" id="copyrightMap">
-          <area shape="circle" coords="15,15,15" alt="">
-        </map>
-      </span>
-      <span id="socialMediaContainer">
-        <span id="socialMediaIcons">
-          <img src="pics/twitterIcon.svg" alt="" class="socialMediaIcons">
-          <img src="pics/instagramIcon.svg" alt="" class="socialMediaIcons">
-          <img src="pics/githubIcon.svg" alt="" class="socialMediaIcons">
-        </span>
-      </span>
+    <div class="sidebar" id="sidebarContainer">
+      <div class="expandSidebar" id="expandSidebarButton">
+        <img id="expandImg" class="expandImg" src="pics/leftArrow.svg" alt="">
+      </div>
+      <div class="chatboxContainer">
+        <div class="chatboxHeader">
+          <div class="chatbotProfile">
+            <div class="chatbotStatus">
+
+            </div>
+            <div class="chatbotAvatar">
+              <img src="pics/chatbotAvatar.svg" alt="-" style="width:100%;">
+            </div>
+            <div class="chatbotName">
+              Vida (indefinitely offline)
+            </div>
+          </div>
+        </div>
+        <div class="messageContainer" id="messageContainer">
+
+        </div>
+        <div class="messageSendBox">
+          <input type="text" id="chatBotInput" name="chatBotInput">
+        </div>
+      </div>
+      <div class="sidebarFooter">
+        <div class="iconBox githubIconBox">
+          <img src="pics/githubIcon.svg" alt="" onclick="socialMediaSwal('github')">
+        </div>
+        <div class="iconBox telegramIconBox">
+          <img src="pics/telegramIcon.svg" alt="" onclick="socialMediaSwal('telegram')">
+        </div>
+        <div class="iconBox instagramIconBox">
+          <img src="pics/instagramIcon.svg" alt="" onclick="socialMediaSwal('insta')">
+        </div>
+        <div class="iconBox gmailIconBox">
+          <img src="pics/gmailIcon.svg" alt="" onclick="socialMediaSwal('gmail')" style="width:50%">
+        </div>
+      </div>
     </div>
 
   </div>

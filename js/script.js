@@ -34,6 +34,8 @@ let bevSpriteSize = 'M';
 let bevDrPepperSize = 'M';
 let bevFantaSize = 'M';
 
+let sidebarStatus = 'closed';
+
 const checkoutStrings = ['Hamburger: ', 'BigMac: ', 'McDouble: ', 'Cheeseburger: ',
   'CocaCola: ', 'Sprite: ', 'DrPepper: ', 'Fanta: '
 ];
@@ -96,7 +98,10 @@ $('#checkoutLabel').on('click', function(e) {
   } else {
     Swal.fire({
       title: "You haven't ordered anything",
-      icon: 'warning'
+      icon: 'warning',
+      background: 'rgba(254, 198, 48, 1)',
+      iconColor: 'rgba(212, 43, 30, 1)',
+      confirmButtonColor: 'rgba(212, 43, 30, 1)'
     });
   }
 });
@@ -105,7 +110,7 @@ function createCheckout() {
   checkoutArray[0] = "<h2>Item:</h2>";
   checkoutArray[1] = "<h2>Size:</h2>";
   checkoutArray[2] = "<h2>Count:</h2>";
-  checkoutArray[3] = "<h2>Price:</h2>";
+  checkoutArray[3] = '<h2 title="VAT included">Price:</h2>';
   let totalPrice = 0;
   let itemCountArray = [
     burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
@@ -194,19 +199,95 @@ $('#copyrightMap').on('click', function(e) {
   Swal.fire({
     title: "Credits:",
     icon: 'info',
-    text: 'Mai Rupnik'
+    html: 'Mai Rupnik, 4. Ra<br>Form project, made with HTML and CSS (+JavaScript)<br>Professor: Boštjan Vouk',
+    background: 'rgba(254, 198, 48, 1)',
+    iconColor: 'rgb(52, 52, 52)',
+    confirmButtonColor: 'rgba(212, 43, 30, 1)'
   });
+});
+$('#expandSidebarButton').on('click', function(e) {
+  if (sidebarStatus == 'closed') {
+    sidebarStatus = 'open';
+    document.getElementById('expandImg').classList.toggle('rotateExpandImg');
+    const sidebarContainer = document.getElementById('sidebarContainer')
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerWidth');
+    }, 0);
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerTranslate');
+    }, 300);
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerHeight');
+    }, 300);
+
+  } else {
+    sidebarStatus = 'closed';
+    document.getElementById('expandImg').classList.toggle('rotateExpandImg');
+    const sidebarContainer = document.getElementById('sidebarContainer')
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerWidth');
+    }, 650);
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerTranslate');
+    }, 300);
+    setTimeout(() => {
+      sidebarContainer.classList.toggle('expandSidebarContainerHeight');
+    }, 0);
+
+  }
+
+
 });
 
-$('#socialMediaIcons').on('click', function(e) {
-  Swal.fire({
-    title: "Socials:",
-    icon: 'info',
-    html: '<div id="swalContainer"><p class="sweetAlertSocials"><img src="pics/twitterIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">@RoomaiGG</span></p>' +
-      '<p class="sweetAlertSocials"><img src="pics/instagramIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">Mai Rupnik</span></p>' +
-      '<p class="sweetAlertSocials"><img src="pics/githubIcon.svg" alt="" class="socialMediaIcons"><span class="swalText">rupmai</span></p></div>'
-  });
-});
+function socialMediaSwal(s) {
+  switch (s) {
+    case 'github':
+      Swal.fire({
+        title: "Find my work on Github:",
+        html: '<a href="https://github.com/mairup/" target="blank">https://github.com/mairup/</a>',
+        imageUrl: 'pics/githubIcon.svg',
+        imageWidth: 200,
+        background: 'rgba(254, 198, 48, 1)',
+        iconColor: 'rgb(52, 52, 52)',
+        confirmButtonColor: 'rgba(212, 43, 30, 1)'
+      });
+      break;
+    case 'telegram':
+      Swal.fire({
+        title: "Text me on Telegram:",
+        text: '+386 12 123 123',
+        imageUrl: 'pics/telegramIcon.svg',
+        imageWidth: 200,
+        background: 'rgba(254, 198, 48, 1)',
+        iconColor: 'rgb(52, 52, 52)',
+        confirmButtonColor: 'rgba(212, 43, 30, 1)'
+      });
+      break;
+    case 'insta':
+      Swal.fire({
+        title: "Find me on Instagram:",
+        html: '<a href="https://www.instagram.com/mai_rupnik/" target="blank">@mai_rupnik</a>',
+        imageUrl: 'pics/instagramIcon.svg',
+        imageWidth: 200,
+        background: 'rgba(254, 198, 48, 1)',
+        iconColor: 'rgb(52, 52, 52)',
+        confirmButtonColor: 'rgba(212, 43, 30, 1)'
+      });
+      break;
+    case 'gmail':
+      Swal.fire({
+        title: "Business e-mail:",
+        text: 'maimairupnik@gmail.com',
+        imageUrl: 'pics/gmailIcon.svg',
+        imageWidth: 200,
+        background: 'rgba(254, 198, 48, 1)',
+        iconColor: 'rgb(52, 52, 52)',
+        confirmButtonColor: 'rgba(212, 43, 30, 1)'
+      });
+      break;
+
+  }
+}
 
 function creditCardSpaces(id) {
   let x = document.getElementById(id).value.length;
@@ -223,9 +304,67 @@ infoWrapper.addEventListener("submit", (e) => {
   e.preventDefault();
   let s = document.getElementById('inputCardName').value;
   Swal.fire({
+    background: 'rgba(254, 198, 48, 1)',
+    iconColor: 'rgb(67, 189, 64)',
+    confirmButtonColor: 'rgba(212, 43, 30, 1)',
     icon: 'success',
     title: 'Thank you for your purchase ' + s,
   }).then((result) => {
     window.location.reload(true);
   });
 });
+
+function paymentTypeHandler(pos) {
+  const paymentInputElementsArray = document.getElementsByClassName('creditCardInput');
+  if (pos == 'right') {
+    for (let i = 0; i < paymentInputElementsArray.length; i++) {
+      console.log('a');
+      paymentInputElementsArray[i].required = false;
+    };
+    document.getElementById('paymentTypeSelectHover').classList.add('paymentTypeSelectTopMove');
+    document.getElementById('paymentCreditCardContainer').classList.add('paymentCreditCardContainerShrunk');
+  } else {
+    for (let i = 0; i < paymentInputElementsArray.length; i++) {
+      console.log('b');
+      paymentInputElementsArray[i].required = true;
+    };
+    document.getElementById('paymentTypeSelectHover').classList.remove('paymentTypeSelectTopMove');
+    document.getElementById('paymentCreditCardContainer').classList.remove('paymentCreditCardContainerShrunk');
+  }
+}
+
+const messageContainer = document.getElementById('messageContainer');
+const chatbotInput = document.getElementById('chatBotInput');
+
+function sendMessageUser() {
+  if (chatBotInput.value != "") {
+    let userMessage = document.createElement('div');
+    let userMessageData = document.createElement('div');
+    userMessage.className = 'userMessageBox';
+    userMessageData.className = 'userMessageData';
+    userMessageData.innerText = chatBotInput.value;
+    messageContainer.appendChild(userMessage);
+    userMessage.appendChild(userMessageData);
+    setTimeout(() => {
+      sendMessageStaff();
+    }, 700);
+  }
+
+}
+
+function sendMessageStaff() {
+  let staffMessage = document.createElement('div');
+  let staffMessageData = document.createElement('div');
+  staffMessage.className = 'staffMessageBox';
+  staffMessageData.className = 'staffMessageData';
+  staffMessageData.innerText = 'Sorry for the inconvenience, but no staff is curently online.'
+  messageContainer.appendChild(staffMessage);
+  staffMessage.appendChild(staffMessageData);
+}
+
+$('#chatBotInput').keypress(function(event) {
+  if (event.keyCode === 13) {
+    sendMessageUser();
+    chatBotInput.value = "";
+  }
+})
