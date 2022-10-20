@@ -35,6 +35,7 @@ let bevDrPepperSize = 'M';
 let bevFantaSize = 'M';
 
 let sidebarStatus = 'closed';
+let staffMessageCount = 0;
 
 const checkoutStrings = ['Hamburger: ', 'BigMac: ', 'McDouble: ', 'Cheeseburger: ',
   'CocaCola: ', 'Sprite: ', 'DrPepper: ', 'Fanta: '
@@ -309,6 +310,7 @@ infoWrapper.addEventListener("submit", (e) => {
     confirmButtonColor: 'rgba(212, 43, 30, 1)',
     icon: 'success',
     title: 'Thank you for your purchase ' + s,
+    timer: 5000
   }).then((result) => {
     window.location.reload(true);
   });
@@ -345,6 +347,7 @@ function sendMessageUser() {
     userMessageData.innerText = chatBotInput.value;
     messageContainer.appendChild(userMessage);
     userMessage.appendChild(userMessageData);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
     setTimeout(() => {
       sendMessageStaff();
     }, 700);
@@ -353,13 +356,18 @@ function sendMessageUser() {
 }
 
 function sendMessageStaff() {
-  let staffMessage = document.createElement('div');
-  let staffMessageData = document.createElement('div');
-  staffMessage.className = 'staffMessageBox';
-  staffMessageData.className = 'staffMessageData';
-  staffMessageData.innerText = 'Sorry for the inconvenience, but no staff is curently online.'
-  messageContainer.appendChild(staffMessage);
-  staffMessage.appendChild(staffMessageData);
+  if (staffMessageCount < 1) {
+    let staffMessage = document.createElement('div');
+    let staffMessageData = document.createElement('div');
+    staffMessage.className = 'staffMessageBox';
+    staffMessageData.className = 'staffMessageData';
+    staffMessageData.innerText = 'Sorry for the inconvenience, but no staff is curently online.' +
+      '\n\bIf you have any questions, contact us through our social media below.'
+    messageContainer.appendChild(staffMessage);
+    staffMessage.appendChild(staffMessageData);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+    staffMessageCount++;
+  }
 }
 
 $('#chatBotInput').keypress(function(event) {
