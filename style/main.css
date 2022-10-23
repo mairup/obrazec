@@ -275,6 +275,14 @@ h1 {
   cursor: pointer;
 }
 
+#copyrightMap {
+  border-radius: 15px;
+  width: 21px;
+  height: 21px;
+  margin-left: 3px;
+  overflow: hidden;
+}
+
 .sweetAlertSocials {
   display: flex;
   flex-flow: row;

@@ -239,7 +239,7 @@
                   <input type="radio" name="bevFanta" id="bevFantaM">
                   <span class="radioSize" onclick="bevFantaSize=moveRadio('middle','bevFantaRadioMark')">M</span>
                 </label>
-                <label for="bevFantaburgerL"><input type="radio" name="bevFanta" id="bevFantaL">
+                <label for="bevFantaL"><input type="radio" name="bevFanta" id="bevFantaL">
                   <span class="radioSize" onclick="bevFantaSize=moveRadio('right','bevFantaRadioMark')">L</span>
                 </label>
               </span>
@@ -248,20 +248,19 @@
             <span class="infoIcon" onclick="toggleInfo('infoFiles/fanta.html')"><img src="pics/infoIcon.svg" alt="info icon"></span>
           </div>
         </div>
-        <label for="submit" style="margin: 30px 0 10px;" id="checkoutLabel">
+        <label for="submitForm" style="margin: 30px 0 10px;border-radius:30px" id="checkoutLabel">
           <span class="submitButton">
-            <input type="submit" name="submit" value="checkout">Proceed to checkout
+            <input type="submit" name="submit" value="checkout" id="submitForm">Proceed to checkout
           </span>
         </label>
       </form>
       <div class="footer">
-        <span id="copyrightContainer">
+        <div id="copyrightContainer">
           <h2>Copyright</h2>
-          <img src="pics/copyright.svg" alt="" style="height:25px;" usemap="#copyrightMap">
-          <map name="copyrightMap" id="copyrightMap">
-            <area shape="circle" coords="15,15,15" alt="">
-          </map>
-        </span>
+          <div id="copyrightMap">
+            <img src="pics/copyright.svg" alt="" style="height:25px;margin-top:-2px;margin-left:-2px;">
+          </div>
+        </div>
       </div>
     </div>
     <div class="infoPopUp infoCover" id="infoCover">
@@ -279,7 +278,7 @@
 
             </div>
             <div class="chatbotAvatar">
-              <img src="pics/chatbotAvatar.svg" alt="-" style="width:100%;">
+              <img src="pics/chatbotAvatar.svg" alt="">
             </div>
             <div class="chatbotName">
               Vida (indefinitely offline)
@@ -290,7 +289,7 @@
 
         </div>
         <div class="messageSendBox">
-          <input type="text" id="chatBotInput" name="chatBotInput">
+          <input type="text" id="chatBotInput" name="chatBotInput" maxlength="256">
         </div>
       </div>
       <div class="sidebarFooter">
@@ -312,8 +311,8 @@
   </div>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 

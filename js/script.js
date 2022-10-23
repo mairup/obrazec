@@ -75,8 +75,8 @@ $('#infoCover').on('click', function(e) {
   infoCover.classList.toggle("infoPopUp");
 });
 
-$('#checkoutLabel').on('click', function(e) {
 
+function submitToCheckout() {
   infoWrapper.innerHTML = "<h1>Order:</h1>"
   let itemCountArray = [
     burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
@@ -105,7 +105,14 @@ $('#checkoutLabel').on('click', function(e) {
       confirmButtonColor: 'rgba(212, 43, 30, 1)'
     });
   }
+}
+wrapper.addEventListener("submit", (e) => {
+  e.preventDefault();
+  submitToCheckout();
 });
+
+
+
 
 function createCheckout() {
   checkoutArray[0] = "<h2>Item:</h2>";
@@ -152,9 +159,9 @@ function createCheckout() {
 }
 
 function count(count, x, string) { // x=1/0  1 --> odstevanje   0 --> sestevanje
-  if (x == 0)
+  if (x == 0 && count < 30)
     count++;
-  else if (count == 1);
+  else if ((count == 1 && x == 1) || (x == 0 && count > 29));
   else count--;
   document.getElementById(string).innerHTML = count;
   return count;
@@ -320,14 +327,12 @@ function paymentTypeHandler(pos) {
   const paymentInputElementsArray = document.getElementsByClassName('creditCardInput');
   if (pos == 'right') {
     for (let i = 0; i < paymentInputElementsArray.length; i++) {
-      console.log('a');
       paymentInputElementsArray[i].required = false;
     };
     document.getElementById('paymentTypeSelectHover').classList.add('paymentTypeSelectTopMove');
     document.getElementById('paymentCreditCardContainer').classList.add('paymentCreditCardContainerShrunk');
   } else {
     for (let i = 0; i < paymentInputElementsArray.length; i++) {
-      console.log('b');
       paymentInputElementsArray[i].required = true;
     };
     document.getElementById('paymentTypeSelectHover').classList.remove('paymentTypeSelectTopMove');
