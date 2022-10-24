@@ -425,6 +425,7 @@ h1 {
   white-space: pre-wrap;
   /* current browsers */
   max-width: 70%;
+  box-shadow: 1px 2px 4px 0.3px;
 }
 
 .staffMessageBox {
@@ -446,6 +447,7 @@ h1 {
   border-bottom-left-radius: 2px;
   background-color: rgba(212, 43, 30, 0.6);
   max-width: 70%;
+  box-shadow: -2px 2px 4px 0.3px;
 }
 
 .messageSendBox {
