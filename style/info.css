@@ -11,7 +11,7 @@
 
 .infoWrapper {
   caret-color: transparent;
-  position: absolute;
+  position: relative;
   padding: 20px 0px 30px;
   top: 10vh;
   left: 50%;
@@ -26,7 +26,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.88) 5px 5px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px 10px;
 }
 
 h1 {
