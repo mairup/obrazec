@@ -207,7 +207,7 @@ $('#copyrightMap').on('click', function(e) {
   Swal.fire({
     title: "Credits:",
     icon: 'info',
-    html: 'Mai Rupnik, 4. Ra<br>Form project, made with HTML and CSS (+JavaScript)<br>Professor: Boštjan Vouk',
+    html: '<div style="text-align:left">Mai Rupnik, 4. Ra<br>Form project, made with HTML and CSS (+JavaScript)<br>Professor: Boštjan Vouk</div>',
     background: 'rgba(254, 198, 48, 1)',
     iconColor: 'rgb(52, 52, 52)',
     confirmButtonColor: 'rgba(212, 43, 30, 1)'
@@ -310,7 +310,7 @@ function creditCardSpaces(id) {
 
 infoWrapper.addEventListener("submit", (e) => {
   e.preventDefault();
-  let s = document.getElementById('inputCardName').value;
+  let s = document.getElementById('inputFullName').value;
   Swal.fire({
     background: 'rgba(254, 198, 48, 1)',
     iconColor: 'rgb(67, 189, 64)',
