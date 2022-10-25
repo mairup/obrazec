@@ -20,11 +20,12 @@
     <div class="paymentCreditCard" id="paymentCreditCardContainer">
       Credit card number:
       <div class="textInputBox">
-        <input class="creditCardInput" oninput="creditCardSpaces('inputCardNumber')" type="text" name="cardNumber" id="inputCardNumber" maxlength="19" required pattern="^(?:4\d{3}|5[1-5]\d{2}|6011|3[47]\d{2})([- ]?)\d{4}\1\d{4}\1\d{4}$">
+        <input class="creditCardInput" autocomplete="off" oninput="creditCardSpaces('inputCardNumber')" type="text" name="cardNumber" id="inputCardNumber" maxlength="19" required
+          pattern="^(?:4\d{3}|5[1-5]\d{2}|6011|3[47]\d{2})([- ]?)\d{4}\1\d{4}\1\d{4}$">
       </div>
       Name on the card
       <div class="textInputBox">
-        <input class="creditCardInput" type="text" name="fullNameOnCard" id="inputCardName" maxlength="45" pattern="^((?:[A-Za-z]+ ?){1,3})$" required>
+        <input class="creditCardInput" autocomplete="off" type="text" name="fullNameOnCard" id="inputCardName" maxlength="45" pattern="^((?:[A-Za-z]+ ?){1,3})$" required>
       </div>
       <div class="expirationDateBox">
         <div class="expirationDate">
@@ -68,27 +69,27 @@
         </div>
         <div class="cvcBox">
           CVC
-          <input class="creditCardInput" type="text" name="cvc" pattern="[0-9]{3}" maxlength="3" required>
+          <input class="creditCardInput" type="text" name="cvc" autocomplete="off" pattern="[0-9]{3}" maxlength="3" required>
         </div>
       </div>
     </div>
   </div>
   Full name
   <div class="textInputBox">
-    <input type="text" name="fullName" id="inputNameOnCard" maxlength="45" pattern="^((?:[A-Za-z]+ ?){1,4})$" required>
+    <input type="text" name="fullName" id="inputNameOnCard" autocomplete="off" maxlength="45" pattern="^((?:[A-Za-z]+ ?){1,4})$" required>
   </div>
   Delivery address
   <div class="textInputBox">
-    <input type="text" name="address" maxlength="45" required>
+    <input type="text" name="address" autocomplete="off" maxlength="45" required>
   </div>
   <div class="textInputBox">
     <div class="textInputBoxHalf">
       City
-      <input type="text" name="city" maxlength="30" required>
+      <input type="text" name="city" autocomplete="off" maxlength="30" required>
     </div>
     <div class="textInputBoxHalf" style="width:20%;margin: 0">
       Zip
-      <input type="text" name="zip" pattern="[0-9]{4}" maxlength="4" title="4-digit code" required>
+      <input type="text" name="zip" autocomplete="off" pattern="[0-9]{4}" maxlength="4" title="4-digit code" required>
     </div>
   </div>
   <div class="submitBox">
