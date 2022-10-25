@@ -236,8 +236,8 @@ h1 {
 .submitButton {
   display: grid;
   place-items: center;
-  width: 350px;
-  height: 80px;
+  width: 320px;
+  height: 65px;
   background-color: var(--mcRed);
   color: var(--mcYello);
   font-weight: bold;
@@ -249,7 +249,6 @@ h1 {
   display: none;
 }
 
-.submitButton:hover,
 .submitButton label:hover {
   cursor: pointer;
 }

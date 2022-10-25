@@ -207,7 +207,7 @@ $('#copyrightMap').on('click', function(e) {
   Swal.fire({
     title: "Credits:",
     icon: 'info',
-    html: '<div style="text-align:left;line-height:25px;">Mai Rupnik, 4. Ra<br>Form project, made with HTML and CSS (+JavaScript)<br>Professor: Boštjan Vouk</div>',
+    html: '<div style="text-align:left;line-height:25px;">Mai Rupnik, 4. Ra<br>Form project, made with HTML and CSS (+JavaScript)<br>Supervisor: Boštjan Vouk</div>',
     background: 'rgba(254, 198, 48, 1)',
     iconColor: 'rgb(52, 52, 52)',
     confirmButtonColor: 'rgba(212, 43, 30, 1)'
