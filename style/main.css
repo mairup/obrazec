@@ -50,14 +50,6 @@ h1 {
   color: var(--mcRed);
   text-align: center;
   font-size: 30px;
-  caret-color: transparent;
-  /* text line removal */
-  -webkit-user-select: none;
-  /* Safari */
-  -ms-user-select: none;
-  /* IE 10+ */
-  user-select: none;
-  /* select color removal */
   width: 100%;
 }
 
@@ -236,20 +228,20 @@ h1 {
 .submitButton {
   display: grid;
   place-items: center;
-  width: 320px;
-  height: 65px;
+  width: 280px;
+  height: 60px;
   background-color: var(--mcRed);
   color: var(--mcYello);
   font-weight: bold;
-  font-size: 30px;
-  border-radius: 30px;
+  font-size: 25px;
+  border-radius: 26px;
 }
 
 .submitButton input {
   display: none;
 }
 
-.submitButton label:hover {
+label:hover {
   cursor: pointer;
 }
 
