@@ -1,0 +1,5 @@
+Obrazec transformed into a node app for dynamic content loading
+
+Items from McDonalds are loaded from a json
+
+if you want to open the app, download it and run with node.js
