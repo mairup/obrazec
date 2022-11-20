@@ -1,4 +1,103 @@
-//import load from "jquery-3.6.1.js";
+let itemObject;
+const itemsContainer = document.getElementById("itemsContainer");
+
+function ajaxLoadJSON() {
+  $.ajax({
+    url: "/ajax",
+    method: "POST",
+    contentType: "application/JSON",
+    success: function (res) {
+      itemObject = res.response;
+      createItemsHTML();
+    }
+  })
+}
+
+ajaxLoadJSON();
+
+function createItemsHTML() {
+  for (let i = 0; i < itemObject.length; i++) {
+    let currentDiv = document.createElement("div");
+    currentDiv.setAttribute("class", "checkboxContainer");
+
+    let currentTitleSpan = document.createElement("span");
+    let currentSizeSpan = document.createElement("span");
+    let currentCountSelectSpan = document.createElement("span");
+    let currentLeftArrowImg = document.createElement("img");
+    let currentRightArrowImg = document.createElement("img");
+    let currentCountNumberSpan = document.createElement("span");
+    let currentBotSizeSelectSpan = document.createElement("span");
+    let currentRadioSizeSmallSpan = document.createElement("span");
+    let currentRadioSizeMediumSpan = document.createElement("span");
+    let currentRadioSizeLargeSpan = document.createElement("span");
+    let currentRadioMark = document.createElement("div");
+    let currentInfoIconSpan = document.createElement("span");
+    let currentinfoIconImg = document.createElement("img");
+
+    currentTitleSpan.setAttribute("id", itemObject[i]['title-id']);
+    currentTitleSpan.setAttribute("class", "checkboxImage");
+    currentTitleSpan.innerHTML = itemObject[i]["title"];
+    let s = "itemObject[" + i + "]['count']=resetCount(itemObject[" + i + "]['count-id']);dropSizeSelect(itemObject[" + i + "]['size-id'],itemObject[" + i + "]['title-id']);";
+    currentTitleSpan.setAttribute("onclick", s);
+
+    currentLeftArrowImg.setAttribute("class", "countArrow");
+    currentLeftArrowImg.setAttribute("src", "pics/leftArrow.svg");
+    currentLeftArrowImg.setAttribute("alt", "image");
+    currentLeftArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],1,itemObject[" + i + "]['count-id'])");
+
+    currentRightArrowImg.setAttribute("class", "countArrow");
+    currentRightArrowImg.setAttribute("src", "pics/rightArrow.svg");
+    currentRightArrowImg.setAttribute("alt", "image");
+    currentRightArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],0,itemObject[" + i + "]['count-id'])");
+
+    currentCountNumberSpan.setAttribute("class", "countNumber");
+    currentCountNumberSpan.setAttribute("id", itemObject[i]['count-id']);
+
+    currentRadioSizeSmallSpan.setAttribute("class", "radioSize");
+    currentRadioSizeSmallSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('left',itemObject[" + i + "]['radioMark-id'])");
+    currentRadioSizeSmallSpan.innerHTML = 'S';
+    currentRadioSizeMediumSpan.setAttribute("class", "radioSize");
+    currentRadioSizeMediumSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('middle',itemObject[" + i + "]['radioMark-id'])");
+    currentRadioSizeMediumSpan.innerHTML = 'M';
+    currentRadioSizeLargeSpan.setAttribute("class", "radioSize");
+    currentRadioSizeLargeSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('right',itemObject[" + i + "]['radioMark-id'])");
+    currentRadioSizeLargeSpan.innerHTML = 'L';
+
+    currentSizeSpan.setAttribute("id", itemObject[i]['size-id']);
+    currentSizeSpan.setAttribute("class", "sizeSelect");
+
+    currentCountSelectSpan.setAttribute("class", "countSelect");
+    currentBotSizeSelectSpan.setAttribute("class", "botSizeSelect");
+
+    currentRadioMark.setAttribute("class", "radioMark");
+    currentRadioMark.setAttribute("id", itemObject[i]['radioMark-id']);
+
+    currentInfoIconSpan.setAttribute("class", "infoIcon");
+    currentInfoIconSpan.setAttribute("onclick", "toggleInfo('WIP')");   //  WORK IN PROGRESS ---> MOVING INFO FILES TO JSON
+
+    currentinfoIconImg.setAttribute("src","pics/infoIcon.svg");
+
+    currentSizeSpan.append(currentCountSelectSpan);
+    currentSizeSpan.append(currentBotSizeSelectSpan);
+
+    currentCountSelectSpan.append(currentLeftArrowImg);
+    currentCountSelectSpan.append(currentCountNumberSpan);
+    currentCountSelectSpan.append(currentRightArrowImg);
+
+    currentBotSizeSelectSpan.append(currentRadioSizeSmallSpan);
+    currentBotSizeSelectSpan.append(currentRadioSizeMediumSpan);
+    currentBotSizeSelectSpan.append(currentRadioSizeLargeSpan);
+
+    currentDiv.append(currentTitleSpan);
+    currentDiv.append(currentSizeSpan);
+    currentDiv.append(currentRadioMark);
+    currentDiv.append(currentInfoIconSpan);
+    currentInfoIconSpan.append(currentinfoIconImg);
+
+    itemsContainer.append(currentDiv);
+  }
+}
+
 let burgHamburgerCount = 0;
 let burgBigMacCount = 0;
 let burgMcDoubleCount = 0;

@@ -68,13 +68,10 @@ h1 {
   /* select color removal */
 }
 
-.top {
+.itemLine {
   margin: 10px 0;
 }
 
-.bottom {
-  margin: 10px 0;
-}
 
 .checkboxInput {
   display: none;
