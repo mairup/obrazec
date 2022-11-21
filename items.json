@@ -1,9 +1,59 @@
-[{
-    "title-id": "burgHamburgerTitle",
+[
+    {
+    "type": "Burgers",
     "title": "Hamburger",
-    "size-id": "burgHamburgerSize",
     "count": 0,
     "size": "M",
-    "radioMark-id": "burgHamburgerRadioMark",
-    "count-id": "burgHamburgerCount"
-}]
+    "price": 5.99
+},
+{
+    "type": "Burgers",
+    "title": "BigMac",
+    "count": 0,
+    "size": "M",
+    "price": 9.99
+},
+{
+    "type": "Burgers",
+    "title": "McDouble",
+    "count": 0,
+    "size": "M",
+    "price": 7.99
+},
+{
+    "type": "Burgers",
+    "title": "Cheeseburger",
+    "count": 0,
+    "size": "M",
+    "price": 6.99
+},
+{
+    "type": "Beverages",
+    "title": "Sprite",
+    "count": 0,
+    "size": "M",
+    "price": 1.35
+},
+{
+    "type": "Beverages",
+    "title": "Coca-Cola",
+    "count": 0,
+    "size": "M",
+    "price": 1.49
+},
+{
+    "type": "Beverages",
+    "title": "DrPepper",
+    "count": 0,
+    "size": "M",
+    "price": 1.59
+},
+{
+    "type": "Beverages",
+    "title": "Fanta",
+    "count": 0,
+    "size": "M",
+    "price": 1.25
+}
+
+]

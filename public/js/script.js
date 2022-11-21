@@ -15,130 +15,123 @@ function ajaxLoadJSON() {
 
 ajaxLoadJSON();
 
-function createItemsHTML() {
-  for (let i = 0; i < itemObject.length; i++) {
-    let currentDiv = document.createElement("div");
-    currentDiv.setAttribute("class", "checkboxContainer");
+function createChild(itemTypeContainerBox, i) {
 
-    let currentTitleSpan = document.createElement("span");
-    let currentSizeSpan = document.createElement("span");
-    let currentCountSelectSpan = document.createElement("span");
-    let currentLeftArrowImg = document.createElement("img");
-    let currentRightArrowImg = document.createElement("img");
-    let currentCountNumberSpan = document.createElement("span");
-    let currentBotSizeSelectSpan = document.createElement("span");
-    let currentRadioSizeSmallSpan = document.createElement("span");
-    let currentRadioSizeMediumSpan = document.createElement("span");
-    let currentRadioSizeLargeSpan = document.createElement("span");
-    let currentRadioMark = document.createElement("div");
-    let currentInfoIconSpan = document.createElement("span");
-    let currentinfoIconImg = document.createElement("img");
+  let currentTitleSpan = document.createElement("span");
+  let currentSizeSpan = document.createElement("span");
+  let currentCountSelectSpan = document.createElement("span");
+  let currentLeftArrowImg = document.createElement("img");
+  let currentRightArrowImg = document.createElement("img");
+  let currentCountNumberSpan = document.createElement("span");
+  let currentBotSizeSelectSpan = document.createElement("span");
+  let currentRadioSizeSmallSpan = document.createElement("span");
+  let currentRadioSizeMediumSpan = document.createElement("span");
+  let currentRadioSizeLargeSpan = document.createElement("span");
+  let currentRadioMark = document.createElement("div");
+  let currentInfoIconSpan = document.createElement("span");
+  let currentinfoIconImg = document.createElement("img");
 
-    currentTitleSpan.setAttribute("id", itemObject[i]['title-id']);
-    currentTitleSpan.setAttribute("class", "checkboxImage");
-    currentTitleSpan.innerHTML = itemObject[i]["title"];
-    let s = "itemObject[" + i + "]['count']=resetCount(itemObject[" + i + "]['count-id']);dropSizeSelect(itemObject[" + i + "]['size-id'],itemObject[" + i + "]['title-id']);";
-    currentTitleSpan.setAttribute("onclick", s);
+  let currentDiv = document.createElement("div");
+  currentDiv.setAttribute("class", "checkboxContainer");
 
-    currentLeftArrowImg.setAttribute("class", "countArrow");
-    currentLeftArrowImg.setAttribute("src", "pics/leftArrow.svg");
-    currentLeftArrowImg.setAttribute("alt", "image");
-    currentLeftArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],1,itemObject[" + i + "]['count-id'])");
 
-    currentRightArrowImg.setAttribute("class", "countArrow");
-    currentRightArrowImg.setAttribute("src", "pics/rightArrow.svg");
-    currentRightArrowImg.setAttribute("alt", "image");
-    currentRightArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],0,itemObject[" + i + "]['count-id'])");
+  currentTitleSpan.setAttribute("id", itemObject[i]['type'] + itemObject[i]['title'] + "Title");
+  currentTitleSpan.setAttribute("class", "checkboxImage");
+  currentTitleSpan.innerHTML = itemObject[i]["title"];
+  let s = "itemObject[" + i + "]['count']=resetCount('" + itemObject[i]['type'] + itemObject[i]['title'] + 'Count' + "');dropSizeSelect('" + itemObject[i]['type'] + itemObject[i]['title'] + "Size','" + itemObject[i]['type'] + itemObject[i]['title'] + "Title');";
+  currentTitleSpan.setAttribute("onclick", s);
 
-    currentCountNumberSpan.setAttribute("class", "countNumber");
-    currentCountNumberSpan.setAttribute("id", itemObject[i]['count-id']);
+  currentLeftArrowImg.setAttribute("class", "countArrow");
+  currentLeftArrowImg.setAttribute("src", "pics/leftArrow.svg");
+  currentLeftArrowImg.setAttribute("alt", "image");
+  currentLeftArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],1,'" + itemObject[i]['type'] + itemObject[i]['title'] + 'Count' + "')");
 
-    currentRadioSizeSmallSpan.setAttribute("class", "radioSize");
-    currentRadioSizeSmallSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('left',itemObject[" + i + "]['radioMark-id'])");
-    currentRadioSizeSmallSpan.innerHTML = 'S';
-    currentRadioSizeMediumSpan.setAttribute("class", "radioSize");
-    currentRadioSizeMediumSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('middle',itemObject[" + i + "]['radioMark-id'])");
-    currentRadioSizeMediumSpan.innerHTML = 'M';
-    currentRadioSizeLargeSpan.setAttribute("class", "radioSize");
-    currentRadioSizeLargeSpan.setAttribute("onclick", "itemObject[" + i + "]['size-id']=moveRadio('right',itemObject[" + i + "]['radioMark-id'])");
-    currentRadioSizeLargeSpan.innerHTML = 'L';
+  currentRightArrowImg.setAttribute("class", "countArrow");
+  currentRightArrowImg.setAttribute("src", "pics/rightArrow.svg");
+  currentRightArrowImg.setAttribute("alt", "image");
+  currentRightArrowImg.setAttribute("onclick", "itemObject[" + i + "]['count']=count(itemObject[" + i + "]['count'],0,'" + itemObject[i]['type'] + itemObject[i]['title'] + 'Count' + "')");
 
-    currentSizeSpan.setAttribute("id", itemObject[i]['size-id']);
-    currentSizeSpan.setAttribute("class", "sizeSelect");
+  currentCountNumberSpan.setAttribute("class", "countNumber");
+  currentCountNumberSpan.setAttribute("id", itemObject[i]['type'] + itemObject[i]['title'] + 'Count');
 
-    currentCountSelectSpan.setAttribute("class", "countSelect");
-    currentBotSizeSelectSpan.setAttribute("class", "botSizeSelect");
+  currentRadioSizeSmallSpan.setAttribute("class", "radioSize");
+  currentRadioSizeSmallSpan.setAttribute("onclick", "itemObject[" + i + "]['size']=moveRadio('left','" + itemObject[i]['type'] + itemObject[i]['title'] + 'RadioMark' + "')");
+  currentRadioSizeSmallSpan.innerHTML = 'S';
+  currentRadioSizeMediumSpan.setAttribute("class", "radioSize");
+  currentRadioSizeMediumSpan.setAttribute("onclick", "itemObject[" + i + "]['size']=moveRadio('middle','" + itemObject[i]['type'] + itemObject[i]['title'] + 'RadioMark' + "')");
+  currentRadioSizeMediumSpan.innerHTML = 'M';
+  currentRadioSizeLargeSpan.setAttribute("class", "radioSize");
+  currentRadioSizeLargeSpan.setAttribute("onclick", "itemObject[" + i + "]['size']=moveRadio('right','" + itemObject[i]['type'] + itemObject[i]['title'] + 'RadioMark' + "')");
+  currentRadioSizeLargeSpan.innerHTML = 'L';
 
-    currentRadioMark.setAttribute("class", "radioMark");
-    currentRadioMark.setAttribute("id", itemObject[i]['radioMark-id']);
+  currentSizeSpan.setAttribute("id", itemObject[i]['type'] + itemObject[i]['title'] + 'Size');
+  currentSizeSpan.setAttribute("class", "sizeSelect");
 
-    currentInfoIconSpan.setAttribute("class", "infoIcon");
-    currentInfoIconSpan.setAttribute("onclick", "toggleInfo('WIP')");   //  WORK IN PROGRESS ---> MOVING INFO FILES TO JSON
+  currentCountSelectSpan.setAttribute("class", "countSelect");
+  currentBotSizeSelectSpan.setAttribute("class", "botSizeSelect");
 
-    currentinfoIconImg.setAttribute("src","pics/infoIcon.svg");
+  currentRadioMark.setAttribute("class", "radioMark");
+  currentRadioMark.setAttribute("id", itemObject[i]['type'] + itemObject[i]['title'] + 'RadioMark');
 
-    currentSizeSpan.append(currentCountSelectSpan);
-    currentSizeSpan.append(currentBotSizeSelectSpan);
+  currentInfoIconSpan.setAttribute("class", "infoIcon");
+  currentInfoIconSpan.setAttribute("onclick", "toggleInfo('WIP')"); //  WORK IN PROGRESS ---> MOVING INFO FILES TO JSON
 
-    currentCountSelectSpan.append(currentLeftArrowImg);
-    currentCountSelectSpan.append(currentCountNumberSpan);
-    currentCountSelectSpan.append(currentRightArrowImg);
+  currentinfoIconImg.setAttribute("src", "pics/infoIcon.svg");
 
-    currentBotSizeSelectSpan.append(currentRadioSizeSmallSpan);
-    currentBotSizeSelectSpan.append(currentRadioSizeMediumSpan);
-    currentBotSizeSelectSpan.append(currentRadioSizeLargeSpan);
+  currentSizeSpan.append(currentCountSelectSpan);
+  currentSizeSpan.append(currentBotSizeSelectSpan);
 
-    currentDiv.append(currentTitleSpan);
-    currentDiv.append(currentSizeSpan);
-    currentDiv.append(currentRadioMark);
-    currentDiv.append(currentInfoIconSpan);
-    currentInfoIconSpan.append(currentinfoIconImg);
+  currentCountSelectSpan.append(currentLeftArrowImg);
+  currentCountSelectSpan.append(currentCountNumberSpan);
+  currentCountSelectSpan.append(currentRightArrowImg);
 
-    itemsContainer.append(currentDiv);
-  }
+  currentBotSizeSelectSpan.append(currentRadioSizeSmallSpan);
+  currentBotSizeSelectSpan.append(currentRadioSizeMediumSpan);
+  currentBotSizeSelectSpan.append(currentRadioSizeLargeSpan);
+
+  currentDiv.append(currentTitleSpan);
+  currentDiv.append(currentSizeSpan);
+  currentDiv.append(currentRadioMark);
+  currentDiv.append(currentInfoIconSpan);
+  currentInfoIconSpan.append(currentinfoIconImg);
+
+  itemTypeContainerBox.append(currentDiv);
 }
 
-let burgHamburgerCount = 0;
-let burgBigMacCount = 0;
-let burgMcDoubleCount = 0;
-let burgCheeseburgerCount = 0;
+function createItemsHTML() {
 
-let bevCocaColaCount = 0;
-let bevSpriteCount = 0;
-let bevDrPepperCount = 0;
-let bevFantaCount = 0;
+  let itemTypeContainer = document.createElement("div");
+  let itemTypeContainerName = "";
+  let itemTypeContainerH1 = document.createElement("h1");
+  let itemTypeContainerBox = document.createElement("div");
+  itemTypeContainerBox.setAttribute("class", "itemLine");
 
-const burgHamburgerPrice = 5.99;
-const burgBigMacPrice = 9.99;
-const burgMcDoublePrice = 7.99;
-const burgCheeseburgerPrice = 5.99;
+  for (let i = 0; i < itemObject.length; i++) {
+    if (itemObject[i]['type'] != itemTypeContainerName) {
+      itemTypeContainerH1 = document.createElement("h1");
+      itemTypeContainerH1.innerText = itemObject[i]["type"];
+      itemsContainer.append(itemTypeContainerH1);
+      itemTypeContainer = document.createElement("div");
+      itemTypeContainer.setAttribute("id", itemObject[i]["type"] + "Container");
+      itemsContainer.append(itemTypeContainer);
+    }
+    if (itemTypeContainerBox.childElementCount < 2) {
+      createChild(itemTypeContainerBox, i);
+    } else {
+      itemTypeContainerBox = document.createElement("div");
+      itemTypeContainerBox.setAttribute("class", "itemLine");
+      createChild(itemTypeContainerBox, i);
+    }
+    itemTypeContainer.append(itemTypeContainerBox);
+    itemTypeContainerName = itemObject[i]["type"];
+  }
 
-const bevCocaColaPrice = 1.99;
-const bevSpritePrice = 1.49;
-const bevDrPepperPrice = 1.79;
-const bevFantaPrice = 1.19;
 
-const itemPriceArray = [burgHamburgerPrice, burgBigMacPrice, burgBigMacPrice, burgCheeseburgerPrice,
-  bevCocaColaPrice, bevSpritePrice, bevDrPepperPrice, bevFantaPrice
-];
+}
 
-
-let burgHamburgerSize = 'M';
-let burgBigMacSize = 'M';
-let burgMcDoubleSize = 'M';
-let burgCheeseburgerSize = 'M';
-
-let bevCocaColaSize = 'M';
-let bevSpriteSize = 'M';
-let bevDrPepperSize = 'M';
-let bevFantaSize = 'M';
 
 let sidebarStatus = 'closed';
 let staffMessageCount = 0;
-
-const checkoutStrings = ['Hamburger: ', 'BigMac: ', 'McDouble: ', 'Cheeseburger: ',
-  'CocaCola: ', 'Sprite: ', 'DrPepper: ', 'Fanta: '
-];
 
 const checkoutInfoDiv = document.createElement("div");
 checkoutInfoDiv.setAttribute("id", "checkoutInfoDiv");
@@ -176,17 +169,12 @@ $('#infoCover').on('click', function (e) {
 
 
 function submitToCheckout() {
-  infoWrapper.innerHTML = "<h1>Order:</h1>"
-  let itemCountArray = [
-    burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
-    bevCocaColaCount, bevSpriteCount, bevDrPepperCount, bevFantaCount
-  ];
+  infoWrapper.innerHTML = "<h1>Order:</h1>";
   let x = 0;
-  for (var i = 0; i < itemCountArray.length; i++)
-    if (itemCountArray[i] > 0) x = 1;
+  for (var i = 0; i < itemObject.length; i++)
+    if (itemObject[i]['count'] > 0) x = 1;
   if (x == 1) {
     infoCover.classList.toggle("infoPopUp");
-
     infoWrapper.append(checkoutInfoDiv);
     createCheckout();
     checkoutInfoDiv.append(checkoutInfoDivItem);
@@ -219,17 +207,10 @@ function createCheckout() {
   checkoutArray[2] = "<h2>Count:</h2>";
   checkoutArray[3] = '<h2 title="VAT included">Price:</h2>';
   let totalPrice = 0;
-  let itemCountArray = [
-    burgHamburgerCount, burgBigMacCount, burgMcDoubleCount, burgCheeseburgerCount,
-    bevCocaColaCount, bevSpriteCount, bevDrPepperCount, bevFantaCount
-  ];
-  let itemSizeArray = [burgHamburgerSize, burgBigMacSize, burgMcDoubleSize, burgCheeseburgerSize,
-    bevCocaColaSize, bevSpriteSize, bevDrPepperSize, bevFantaSize
-  ];
   let size;
-  for (var i = 0; i < itemCountArray.length; i++) {
-    if (itemCountArray[i] > 0) {
-      switch (itemSizeArray[i]) {
+  for (var i = 0; i < itemObject.length; i++) {
+    if (itemObject[i]['count'] > 0) {
+      switch (itemObject[i]['size']) {
         case 'S':
           size = 0.9;
           break;
@@ -240,13 +221,13 @@ function createCheckout() {
           size = 1.2;
           break;
       }
-      let price = itemCountArray[i] * itemPriceArray[i] * size;
+      let price = itemObject[i]['count'] * itemObject[i]['price'] * size;
       price = Math.round(price * 100) / 100;
       totalPrice += price;
       totalPrice = Math.round(totalPrice * 100) / 100;
-      checkoutArray[0] += checkoutStrings[i] + " <br> ";
-      checkoutArray[1] += itemSizeArray[i] + " <br> ";
-      checkoutArray[2] += itemCountArray[i] + " <br> ";
+      checkoutArray[0] += itemObject[i]['title'] + ": <br> ";
+      checkoutArray[1] += itemObject[i]['size'] + " <br> ";
+      checkoutArray[2] += itemObject[i]['count'] + " <br> ";
       checkoutArray[3] += price + ' EUR' + " <br> ";
     }
   }
