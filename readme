@@ -1,4 +1,4 @@
-Obrazec transformed into a node app for dynamic content loading
+Obrazec transformed into a node app with express for dynamic content loading
 
 Items from McDonalds are loaded from a json
 
