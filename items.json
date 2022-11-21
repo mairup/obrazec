@@ -28,6 +28,13 @@
     "price": 6.99
 },
 {
+    "type": "Burgers",
+    "title": "Fishburger",
+    "count": 0,
+    "size": "M",
+    "price": 4.99
+},
+{
     "type": "Beverages",
     "title": "Sprite",
     "count": 0,

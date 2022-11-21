@@ -114,6 +114,8 @@ function createItemsHTML() {
       itemTypeContainer = document.createElement("div");
       itemTypeContainer.setAttribute("id", itemObject[i]["type"] + "Container");
       itemsContainer.append(itemTypeContainer);
+      itemTypeContainerBox = document.createElement("div");
+      itemTypeContainerBox.setAttribute("class", "itemLine");
     }
     if (itemTypeContainerBox.childElementCount < 2) {
       createChild(itemTypeContainerBox, i);

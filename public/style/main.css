@@ -70,6 +70,8 @@ h1 {
 
 .itemLine {
   margin: 10px 0;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -108,7 +110,6 @@ h1 {
   display: inline-flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   /* text line removal */
   caret-color: transparent;
   /* select color removal */
