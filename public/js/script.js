@@ -3,12 +3,25 @@ const itemsContainer = document.getElementById("itemsContainer");
 
 function ajaxLoadJSON() {
   $.ajax({
-    url: "/ajax",
+    url: "/Obrazec",
     method: "POST",
     contentType: "application/JSON",
+    data: JSON.stringify({function:"return-object"}),
     success: function (res) {
       itemObject = res.response;
       createItemsHTML();
+    }
+  })
+}
+
+function ajaxCheckPassword(password) {
+  $.ajax({
+    url: "/Obrazec",
+    method: "POST",
+    contentType: "application/JSON",
+    data: JSON.stringify({function:"return-password-check",password:password}),
+    success: function (res) {
+      console.log(res.response);
     }
   })
 }
