@@ -74,7 +74,7 @@ function createChild(itemTypeContainerBox, i) {
   currentRadioMark.setAttribute("id", itemObject[i]['type'] + itemObject[i]['title'] + 'RadioMark');
 
   currentInfoIconSpan.setAttribute("class", "infoIcon");
-  currentInfoIconSpan.setAttribute("onclick", "toggleInfo('WIP')"); //  WORK IN PROGRESS ---> MOVING INFO FILES TO JSON
+  currentInfoIconSpan.setAttribute("onclick", "toggleInfo(" + i + ")");
 
   currentinfoIconImg.setAttribute("src", "pics/infoIcon.svg");
 
@@ -158,14 +158,209 @@ const checkoutElseContainer = document.createElement("div");
 checkoutElseContainer.setAttribute("id", "checkoutElseContainer");
 $(checkoutElseContainer).load("checkout.html");
 
-function toggleInfo(s) {
+function toggleInfo(i) {
   infoCover.classList.toggle("infoPopUp");
-  $(".infoWrapper").load(s);
+  infoHeader = document.createElement("h1");
+  infoHeader.innerText = itemObject[i]['title'] + " nutrition"
+  infoWrapper.append(infoHeader);
+  bigNutrition = document.createElement("div");
+  bigNutrition.setAttribute("class", "bigNutrition");
+  infoWrapper.append(bigNutrition);
+
+  bigNutritionValue = document.createElement("div");
+  bigNutritionValue.setAttribute("class", "bigNutritionValue");
+  bigNutritionValueH1 = document.createElement("h1");
+  bigNutritionValueH1.innerText = itemObject[i]['calories'] + "Cal.";
+  bigNutritionValue.append(bigNutritionValueH1);
+  bigNutritionValue.append("Calories");
+  bigNutrition.append(bigNutritionValue);
+
+  bigNutritionValue = document.createElement("div");
+  bigNutritionValue.setAttribute("class", "bigNutritionValue");
+  bigNutritionValueH1 = document.createElement("h1");
+  bigNutritionValueH1.innerText = itemObject[i]['fats'] + "g";
+  bigNutritionValue.append(bigNutritionValueH1);
+  bigNutritionValue.append("Total Fat");
+  bigNutrition.append(bigNutritionValue);
+
+  bigNutritionValue = document.createElement("div");
+  bigNutritionValue.setAttribute("class", "bigNutritionValue");
+  bigNutritionValueH1 = document.createElement("h1");
+  bigNutritionValueH1.innerText = itemObject[i]['carbs'] + "g";
+  bigNutritionValue.append(bigNutritionValueH1);
+  bigNutritionValue.append("Total Carbs");
+  bigNutrition.append(bigNutritionValue);
+
+  bigNutritionValue = document.createElement("div");
+  bigNutritionValue.setAttribute("class", "bigNutritionValue");
+  bigNutritionValueH1 = document.createElement("h1");
+  bigNutritionValueH1.innerText = itemObject[i]['protein'] + "g";
+  bigNutritionValue.append(bigNutritionValueH1);
+  bigNutritionValue.append("Protein");
+  bigNutrition.append(bigNutritionValue);
+
+  smallNutrition = document.createElement("div");
+  smallNutrition.setAttribute("class", "smallNutrition");
+  infoWrapper.append(smallNutrition);
+
+  smallNutritionCollumn = document.createElement("div");
+  smallNutritionCollumn.setAttribute("class", "smallNutritionCollumn");
+  smallNutrition.append(smallNutritionCollumn);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Saturated Fat:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['saturated-fat'] + "g";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Dietary Fiber:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['dietary-fiber'] + "g";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Calcium:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['calcium'] + "mg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Total Fat:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['total-fat'] + "g";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionCollumn = document.createElement("div");
+  smallNutritionCollumn.setAttribute("class", "smallNutritionCollumn");
+  smallNutrition.append(smallNutritionCollumn);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Total Sugars:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['total-sugars'] + "g";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Iron:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['iron'] + "mg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Cholesterol:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['cholesterol'] + "mg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Vitamin D:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['vitamin-d'] + "mcg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionCollumn = document.createElement("div");
+  smallNutritionCollumn.setAttribute("class", "smallNutritionCollumn");
+  smallNutrition.append(smallNutritionCollumn);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Potassium:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['potassium'] + "mg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
+  smallNutritionValue = document.createElement("div");
+  smallNutritionValue.setAttribute("class", "smallNutritionValue");
+
+  smallNutritionValueLeft = document.createElement("div");
+  smallNutritionValueLeft.setAttribute("class", "smallNutritionValueLeft");
+  smallNutritionValueLeft.innerText = "Sodium:";
+  smallNutritionValueRight = document.createElement("div");
+  smallNutritionValueRight.setAttribute("class", "smallNutritionValueRight");
+  smallNutritionValueRight.innerText = itemObject[i]['sodium'] + "mg";
+
+  smallNutritionCollumn.append(smallNutritionValue);
+  smallNutritionValue.append(smallNutritionValueLeft);
+  smallNutritionValue.append(smallNutritionValueRight);
+
 }
+
 $('#infoCover').on('click', function (e) {
   if (e.target !== this)
     return;
-  $(".infoWrapper").load('infoFiles/blank.html');
+  infoWrapper.innerHTML = "";
   infoCover.classList.toggle("infoPopUp");
 });
 
