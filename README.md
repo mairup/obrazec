@@ -1,4 +1,4 @@
-Site available at https://mairup.github.io/Obrazec/
+Site available at <a href="https://mcdonalds.mairup.pro">mcdonalds.mairup.pro</a>
 
-More Active branch:
-ObrazecReworked - Node.js + Express.js version
+Updated and improved branch:
+  ObrazecReworked - Node.js + Express.js version
