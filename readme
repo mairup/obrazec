@@ -1,5 +1,5 @@
 Obrazec transformed into a node app with express for dynamic content loading
 
-Items from McDonalds are loaded from a json
+Items on the display are loaded from a JSON file. Item descriptions are also created with javascript, pulling data from the JSON file.
 
-if you want to open the app, download it and run with node.js
+Sadly I have lost some files so it lacks some important functionality. The project was used to learn about backend javascript briefly (I didn't really know what I was doing and it shows in the code).
