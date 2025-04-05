@@ -6,7 +6,7 @@ function ajaxLoadJSON() {
     url: "/Obrazec",
     method: "POST",
     contentType: "application/JSON",
-    data: JSON.stringify({function:"return-object"}),
+    data: JSON.stringify({ function: "return-object" }),
     success: function (res) {
       itemObject = res.response;
       createItemsHTML();
@@ -19,7 +19,7 @@ function ajaxCheckPassword(password) {
     url: "/Obrazec",
     method: "POST",
     contentType: "application/JSON",
-    data: JSON.stringify({function:"return-password-check",password:password}),
+    data: JSON.stringify({ function: "return-password-check", password: password }),
     success: function (res) {
       console.log(res.response);
     }
@@ -458,7 +458,7 @@ function count(count, x, string) { // x=1/0  1 --> odstevanje   0 --> sestevanje
 }
 
 function resetCount(a) {
-  console.log(document.getElementById(a).textContent);
+  //console.log(document.getElementById(a).textContent);
   if (document.getElementById(a).textContent > 0) {
     document.getElementById(a).innerHTML = 0;
     return 0;
