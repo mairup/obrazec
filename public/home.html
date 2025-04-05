@@ -1,103 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
+    <link rel="stylesheet" href="style/info.css" type="text/css" />
+    <link rel="shortcut icon" href="pics/mcdonalds.ico" type="text/css" />
+    <!-- FONT IMPORT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="style/main.css" type="text/css">
-	<link rel="stylesheet" href="style/info.css" type="text/css">
-	<link rel="shortcut icon" href="pics/mcdonalds.ico" type="text/css">
-	<!-- FONT IMPORT -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap"
-		rel="stylesheet">
+    <title>McDonalds Order Menu</title>
+  </head>
 
-	<title>McDonalds Order Menu</title>
-</head>
+  <body>
+    <div class="background">
+      <div id="wrapper">
+        <h1 style="font-size: 40px">McDonalds order menu</h1>
+        <a
+          style="width: 60%; margin: 30px 0px"
+          target="_blank"
+          href="https://mcdonalds.com/"
+        >
+          <img
+            id="header"
+            src="pics/mcdonalds-header.jpg"
+            alt="*mcdonalds header*"
+        /></a>
+        <form id="orderForm">
+          <div id="itemsContainer"></div>
 
-<body>
-	<div class="background">
-		<div id="wrapper">
-			<h1 style="font-size:40px">McDonalds order menu</h1>
-			<a style="width:60%; margin: 30px 0px;" target="_blank" href="https://mcdonalds.com/">
-				<img id="header" src="pics/mcdonalds-header.jpg" alt="*mcdonalds header*"></a>
-			<form id="orderForm">
+          <label
+            for="submitForm"
+            style="margin: 30px 0 10px; border-radius: 30px"
+            id="checkoutLabel"
+          >
+            <span class="submitButton">
+              <input
+                type="submit"
+                name="submit"
+                value="checkout"
+                id="submitForm"
+              />Proceed to checkout
+            </span>
+          </label>
+        </form>
+        <div class="footer">
+          <div id="copyrightContainer">
+            <h2>Copyright</h2>
+            <div id="copyrightMap">
+              <img
+                src="pics/copyright.svg"
+                alt=""
+                style="height: 25px; margin-top: -2px; margin-left: -2px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="infoPopUp infoCover" id="infoCover">
+        <div class="infoWrapper" id="infoWrapper"></div>
+      </div>
+      <div class="sidebar" id="sidebarContainer">
+        <div class="expandSidebar" id="expandSidebarButton">
+          <img
+            id="expandImg"
+            class="expandImg"
+            src="pics/leftArrow.svg"
+            alt=""
+          />
+        </div>
+        <div class="chatboxContainer">
+          <div class="chatboxHeader">
+            <div class="chatbotProfile">
+              <div class="chatbotStatus"></div>
+              <div class="chatbotAvatar">
+                <img src="pics/chatbotAvatar.svg" alt="" />
+              </div>
+              <div class="chatbotName">Vida (indefinitely offline)</div>
+            </div>
+          </div>
+          <div class="messageContainer" id="messageContainer"></div>
+          <div class="messageSendBox">
+            <input
+              type="text"
+              id="chatBotInput"
+              name="chatBotInput"
+              maxlength="256"
+            />
+          </div>
+        </div>
+        <div class="sidebarFooter">
+          <div class="iconBox githubIconBox">
+            <img
+              src="pics/githubIcon.svg"
+              alt=""
+              onclick="socialMediaSwal('github')"
+            />
+          </div>
+          <div class="iconBox telegramIconBox">
+            <img
+              src="pics/telegramIcon.svg"
+              alt=""
+              onclick="socialMediaSwal('telegram')"
+            />
+          </div>
+          <div class="iconBox instagramIconBox">
+            <img
+              src="pics/instagramIcon.svg"
+              alt=""
+              onclick="socialMediaSwal('insta')"
+            />
+          </div>
+          <div class="iconBox gmailIconBox">
+            <img
+              src="pics/gmailIcon.svg"
+              alt=""
+              onclick="socialMediaSwal('gmail')"
+              style="width: 50%"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
 
-				<div id="itemsContainer">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-				</div>
-
-				<label for="submitForm" style="margin: 30px 0 10px;border-radius:30px" id="checkoutLabel">
-					<span class="submitButton">
-						<input type="submit" name="submit" value="checkout" id="submitForm">Proceed to checkout
-					</span>
-				</label>
-			</form>
-			<div class="footer">
-				<div id="copyrightContainer">
-					<h2>Copyright</h2>
-					<div id="copyrightMap">
-						<img src="pics/copyright.svg" alt="" style="height:25px;margin-top:-2px;margin-left:-2px;">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="infoPopUp infoCover" id="infoCover">
-			<div class="infoWrapper" id="infoWrapper">
-			</div>
-		</div>
-		<div class="sidebar" id="sidebarContainer">
-			<div class="expandSidebar" id="expandSidebarButton">
-				<img id="expandImg" class="expandImg" src="pics/leftArrow.svg" alt="">
-			</div>
-			<div class="chatboxContainer">
-				<div class="chatboxHeader">
-					<div class="chatbotProfile">
-						<div class="chatbotStatus">
-
-						</div>
-						<div class="chatbotAvatar">
-							<img src="pics/chatbotAvatar.svg" alt="">
-						</div>
-						<div class="chatbotName">
-							Vida (indefinitely offline)
-						</div>
-					</div>
-				</div>
-				<div class="messageContainer" id="messageContainer">
-
-				</div>
-				<div class="messageSendBox">
-					<input type="text" id="chatBotInput" name="chatBotInput" maxlength="256">
-				</div>
-			</div>nod
-			<div class="sidebarFooter">
-				<div class="iconBox githubIconBox">
-					<img src="pics/githubIcon.svg" alt="" onclick="socialMediaSwal('github')">
-				</div>
-				<div class="iconBox telegramIconBox">
-					<img src="pics/telegramIcon.svg" alt="" onclick="socialMediaSwal('telegram')">
-				</div>
-				<div class="iconBox instagramIconBox">
-					<img src="pics/instagramIcon.svg" alt="" onclick="socialMediaSwal('insta')">
-				</div>
-				<div class="iconBox gmailIconBox">
-					<img src="pics/gmailIcon.svg" alt="" onclick="socialMediaSwal('gmail')" style="width:50%">
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-	<script scr="js/itemsLoader.js"></script>
-	<script src="js/script.js"></script>
-
-</body>
-
+    <script scr="js/itemsLoader.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
