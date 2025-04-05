@@ -589,7 +589,7 @@ function socialMediaSwal(s) {
 
 function creditCardSpaces(id) {
   let x = document.getElementById(id).value.length;
-  console.log(x);
+  //console.log(x);
   if ((x) % 5 == 0 && x < 17 && x != 0) {
     document.getElementById(id).value = document.getElementById(id).value.substr(0, x - 1) + ' ' + document.getElementById(id).value.charAt(x - 1);
   }
